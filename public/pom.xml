@@ -12,6 +12,9 @@
     <artifactId>public</artifactId>
     <packaging>pom</packaging>
     <name>public</name>
+    <modules>
+        <module>pojo</module>
+    </modules>
 
     <dependencies>
         <dependency>
