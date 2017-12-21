@@ -16,6 +16,7 @@
         <module>pojo</module>
         <module>mapper</module>
         <module>service</module>
+        <module>app</module>
     </modules>
 
     <dependencies>
