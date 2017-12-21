@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>common</module>
+        <module>public</module>
     </modules>
     <packaging>pom</packaging>
 
