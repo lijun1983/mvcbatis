@@ -1,0 +1,13 @@
+
+table.table{
+   /* margin-bottom:5px !important;
+    height:80px !important;*/
+
+}
+ul,.pagination{
+    margin-top:0px !important;
+}
+/*以上是列表样式追加*/
+.dai{
+    margin-top:9px !important;/*列表-添加，修改，全选样式追加*/
+}
