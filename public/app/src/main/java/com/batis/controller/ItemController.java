@@ -27,7 +27,8 @@ public class ItemController
 	@Autowired
 	private ItemService itemService;
 
-	//TODO:测试mvc 配置是否成功 返回一条记录集 http://127.0.0.1:8080/item/536563
+	//TODO:测试mvc 配置是否成功 返回一条记录集 http://127.0.0.1:8080/item/536563; click  return tbItem 行号旁边添加断点 ； 刷新 IE 地址http://127.0.0.1:8080/item/536563 查看
+
 	@RequestMapping("/item/{itemId}")
 	@ResponseBody
 	public TbItem getItemById(@PathVariable Long itemId){
