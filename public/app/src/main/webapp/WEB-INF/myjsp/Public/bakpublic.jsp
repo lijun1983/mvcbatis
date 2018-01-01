@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<link type="text/css" rel="stylesheet" href="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+
+<%--TODO: 右侧公共内容区--%>
+
+<div id="public" class="page-content">
+   <link type="text/css" rel="stylesheet" href="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
    <script src="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
    <script src="/appjqcss/Layouts/RightAddEdit.js"></script>
    <div class="row">
@@ -58,6 +62,25 @@
        </div>
        <div class="panel right_listpage" style=""><%--display: none--%>
          <div class="panel-body" style="padding-top: 0px;">
+            <div class="row mbm" style="margin-bottom:0px !important;">
+               <div class="col-lg-6">
+                <div class="pagination-panel">
+                 Page &nbsp;
+                 <a href="#" class="btn btn-sm btn-default btn-prev"><i class="fa fa-angle-left"></i></a>&nbsp;
+                 <input type="text" maxlenght="5" value="1" class="pagination-panel-input form-control input-mini input-inline input-sm text-center" />&nbsp;
+                 <a href="#" class="btn btn-sm btn-default btn-prev"><i class="fa fa-angle-right"></i></a>&nbsp; of 6 | View &nbsp;
+                 <select class="form-control input-xsmall input-sm input-inline">
+                   <option value="20" selected="selected">20</option> <option value="50">50</option> <option value="100">100</option> <option value="150">150</option> <option value="-1">All</option>
+                 </select>
+                 <label class="startRow">当前显示  第N  TO</label>
+                <label class="endRow">N 条记录|</label>
+                <label class="total">共 N 条记录|</label>
+                <label class="pages">合计：N 页|</label>
+                <label class="pageNum">当前是第 N 页</label>
+                </div>
+               </div>
+
+              </div>
            <%--TODO: 列表模板区2-table列表--%>
            <table class="table table-hover table-striped table-bordered table-advanced tablesorter" style="margin-bottom:0px;">
             <thead class="thead_List">
@@ -73,6 +96,7 @@
              <th width="10%">Date</th>
              <th width="15%">Skills</th>
              <th width="7%">Status</th>
+             <th width="12%">Actions</th>
              <th width="12%">Actions</th>
             </tr>
            </thead>
@@ -96,6 +120,7 @@
                </div>
               </div> </td>
              <td><span class="label label-sm label-success">Approved</span> </td>
+             <td><button type="button" data-toggle="tooltip" data-placement="left" title="" class="btn btn-default mbs" data-original-title="Tooltip on left">Tooltip on left</button></td>
              <td> <button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button> </td>
             </tr>
             <tr>
@@ -117,6 +142,7 @@
                </div>
               </div> </td>
              <td><span class="label label-sm label-info">Pending</span> </td>
+              <td><button type="button" data-toggle="tooltip" data-placement="left" title="" class="btn btn-default mbs" data-original-title="Tooltip on left">Tooltip on left</button></td>
              <td> <button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button> </td>
             </tr>
             <tr>
@@ -138,13 +164,14 @@
                </div>
               </div> </td>
              <td><span class="label label-sm label-info">Pending</span> </td>
+              <td><button type="button" data-toggle="tooltip" data-placement="left" title="" class="btn btn-default mbs" data-original-title="Tooltip on left">Tooltip on left</button></td>
              <td> <button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button> </td>
             </tr>
            </tbody>
 
            </table>
            <%--TODO：页码区--%>
-          <div class="">Page 1 of 4</div>
+
           <div class="" id="page" page_type="Index">
               <div class="dataTables_paginate paging_simple_numbers" id="page_List" typenaem="Index">
                <ul class="pager" style="margin:10px 0px;">
@@ -412,7 +439,7 @@
 6
          </div>
          <div id="emta" class="tab-pane fade">
-           <div class="form-group">
+          <div class="form-group">
               <label class="col-md-3 control-label">Fixed Width</label>
               <div class="col-md-9">
                   <div class="md-editor active" id="1514245146218" style="display: table;"><div class="md-header btn-toolbar"><div class="btn-group"><button type="button" class="btn btn-default btn-sm" title="Bold" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdBold"><span class="glyphicon glyphicon-bold"></span> </button><button type="button" class="btn btn-default btn-sm" title="Italic" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdItalic"><span class="glyphicon glyphicon-italic"></span> </button><button type="button" class="btn btn-default btn-sm" title="Heading" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdHeading"><span class="glyphicon glyphicon-header"></span> </button></div><div class="btn-group"><button type="button" class="btn btn-default btn-sm" title="URL/Link" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdUrl"><span class="glyphicon glyphicon-globe"></span> </button><button type="button" class="btn btn-default btn-sm" title="Image" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdImage"><span class="glyphicon glyphicon-picture"></span> </button></div><div class="btn-group"><button type="button" class="btn btn-default btn-sm" title="List" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdList"><span class="glyphicon glyphicon-list"></span> </button></div><div class="btn-group"><button type="button" class="btn btn-primary btn-sm btn-default btn-sm" title="Preview" tabindex="-1" data-provider="bootstrap-markdown" data-handler="bootstrap-markdown-cmdPreview" data-toggle="button"><span class="glyphicon glyphicon-search"></span> Preview</button></div></div><textarea name="content" data-provide="markdown" rows="10" data-width="400" class="form-control md-input" style="width: 400px; resize: none;"></textarea></div><span class="help-block">Custom width using <code>data-width="400"</code> attribute</span>
@@ -428,3 +455,5 @@
        </form>
      </div>
    </div>
+</div>
+

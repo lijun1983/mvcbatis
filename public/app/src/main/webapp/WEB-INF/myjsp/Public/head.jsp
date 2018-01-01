@@ -24,8 +24,8 @@
     <link type="text/css" rel="stylesheet" href="/jscss/css/themes/style1/orange-blue.css" id="theme-change" class="style-change color-change">
     <link type="text/css" rel="stylesheet" href="/jscss/css/style-responsive.css">
 
-   <%-- <link type="text/css" rel="stylesheet" href="/jscss/Check_box/Check_box.css">--%>
-
+    <link type="text/css" rel="stylesheet" href="/appjqcss/common.css">
+    <link type="text/css" rel="stylesheet" href="/appjqcss/Tipso/css/tipso.css">
     <script src="/jscss/jquery-1.10.2.min.js"></script>
     <script src="/jscss/jquery-migrate-1.2.1.min.js"></script>
     <script src="/jscss/jquery-ui.js"></script>
@@ -58,7 +58,14 @@
     <script src="/appjqcss/Layouts/main.js"></script>
     <script src="/appjqcss/test.js"></script>
 <!--装载右侧的公共部份-->
-    <script src="/appjqcss/Layouts/AdminLoadPage.js"></script>
+
+<script src="/appjqcss/Tipso/js/tipso.js"></script>
+<link type="text/css" rel="stylesheet" href="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+   <script src="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+
+    <script src="/appjqcss/Layouts/myPlugin.js"></script>
+<script src="/appjqcss/Layouts/LoadPageList.js"></script>
+
 
 
 <script type="text/javascript">

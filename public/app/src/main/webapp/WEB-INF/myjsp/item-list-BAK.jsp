@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<link type="text/css" rel="stylesheet" href="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
-   <script src="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
-   <script src="/appjqcss/Layouts/public.js"></script>
+<script src="/appjqcss/Layouts/RightAddEdit.js"></script>
+
+
    <div class="row">
  <%--TODO: table列表 按钮区 查询表单区- --%>
     <div class="col-lg-12">
@@ -58,22 +58,43 @@
        </div>
        <div class="panel right_listpage" style=""><%--display: none--%>
          <div class="panel-body" style="padding-top: 0px;">
-           <%--TODO: 列表模板区2-table列表--%>
+           <div class="col-lg-6">
+                <div class="pagination-panel">
+                 Page &nbsp;
+                 <a href="#" class="btn btn-sm btn-default btn-prev"><i class="fa fa-angle-left"></i></a>&nbsp;
+                 <input type="text" maxlenght="5" value="1" class="pagination-panel-input form-control input-mini input-inline input-sm text-center" style="height:29px;padding: 5px; 10px; margin-left:5px;margin-right: 5px;"/>&nbsp;
+                 <a href="#" class="btn btn-sm btn-default btn-prev"><i class="fa fa-angle-right"></i></a>&nbsp; of 6 | View &nbsp;
+                 <select class="form-control input-xsmall input-sm input-inline">
+                   <option value="20" selected="selected">20</option> <option value="50">50</option> <option value="100">100</option> <option value="150">150</option> <option value="-1">All</option>
+                 </select>
+                  <label class="startRow">当前显示  第N  TO</label>
+                  <label class="endRow">N 条记录|</label>
+                  <label class="total">共 N 条记录|</label>
+                  <label class="pages">合计：N 页|</label>
+                  <label class="pageNum">当前是第 N 页</label>
+                 <%--&nbsp; records | Found total 58 records--%>
+                </div>
+               </div>
+           <%--TODO: 列表模板区2-table列表--%><%--table-hover table-striped table-bordered table-advanced tablesorter--%>
            <table class="table table-hover table-striped table-bordered table-advanced tablesorter" style="margin-bottom:0px;">
             <thead class="thead_List">
             <tr>
              <th width="2%">
                <input type="checkbox">
              </th>
-             <th width="7%">Record #</th>
-             <th>Username</th>
-             <th width="10%">Country</th>
-             <th width="10%">Gender</th>
-             <th width="7%">Order</th>
-             <th width="10%">Date</th>
-             <th width="15%">Skills</th>
-             <th width="7%">Status</th>
-             <th width="12%">Actions</th>
+             <th width="7%">id #</th>
+             <th>Title</th>
+             <th width="10%">Cid</th>
+             <th width="10%">num</th>
+             <th width="7%">price</th>
+             <th width="10%">sellPoint</th>
+             <th width="15%">created</th>
+             <th width="15%">updated</th>
+             <th width="7%">status</th>
+             <th width="7%">status</th>
+             <th width="7%">status</th>
+             <th width="12%">操 作 </th>
+
             </tr>
            </thead>
             <tbody class="tablelist" value="5,">
@@ -96,6 +117,9 @@
                </div>
               </div> </td>
              <td><span class="label label-sm label-success">Approved</span> </td>
+             <td><span class="label label-sm label-success">Approved</span> </td>
+             <td><span class="label label-sm label-success">Approved</span> </td>
+              <td><button type="button" data-toggle="tooltip" data-placement="left" title="" class="btn btn-default mbs" data-original-title="Tooltip on left">Tooltip on left</button></td>
              <td> <button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button> </td>
             </tr>
             <tr>
@@ -117,6 +141,9 @@
                </div>
               </div> </td>
              <td><span class="label label-sm label-info">Pending</span> </td>
+               <td><span class="label label-sm label-success">Approved</span> </td>
+             <td><span class="label label-sm label-success">Approved</span> </td>
+              <td><button type="button" data-toggle="tooltip" data-placement="left" title="" class="btn btn-default mbs" data-original-title="Tooltip on left">Tooltip on left</button></td>
              <td> <button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button> </td>
             </tr>
             <tr>
@@ -138,13 +165,16 @@
                </div>
               </div> </td>
              <td><span class="label label-sm label-info">Pending</span> </td>
+               <td><span class="label label-sm label-success">Approved</span> </td>
+             <td><span class="label label-sm label-success">Approved</span> </td>
+              <td><button type="button" data-toggle="tooltip" data-placement="left" title="" class="btn btn-default mbs" data-original-title="Tooltip on left">Tooltip on left</button></td>
              <td> <button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button> </td>
             </tr>
            </tbody>
 
            </table>
            <%--TODO：页码区--%>
-          <div class="">Page 1 of 4</div>
+
           <div class="" id="page" page_type="Index">
               <div class="dataTables_paginate paging_simple_numbers" id="page_List" typenaem="Index">
                <ul class="pager" style="margin:10px 0px;">
@@ -428,3 +458,6 @@
        </form>
      </div>
    </div>
+<srcipt>
+
+</srcipt>

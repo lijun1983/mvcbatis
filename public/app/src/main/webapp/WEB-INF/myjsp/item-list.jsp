@@ -1,14 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<link type="text/css" rel="stylesheet" href="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
-   <script src="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
-   <script src="/appjqcss/Layouts/RightAddEdit.js"></script>
+
+
+
+<script src="/appjqcss/Layouts/RightAddEdit.js"></script>
+
+
+
    <div class="row">
  <%--TODO: table列表 按钮区 查询表单区- --%>
     <div class="col-lg-12">
        <div class="panel right_select" style="margin-bottom: 0px;">
         <div class="panel-body">
          <%--TODO: 列表模板区2-按钮区--%>
-          <div class="demo-btn" style="margin-top:0px;float: left;">
+          <div class="demo-btn reghtaddeditbutton" style="margin-top:0px;float: left;">
            <button type="button" class="A  btn btn-default btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>新 增 </button>
            <button type="button" class="B btn btn-primary btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>修 改 </button>
            <button type="button" class="C btn btn-success btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>删 除 </button>
@@ -50,30 +54,52 @@
                </div>
               </div>
               <div class="demo-btn" style="position: relative;left:90%;top:-30px;width:10%;">
-               <button type="button" class="Query btn btn-danger btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>查 询 </button>
-               <button type="button" class="Reset btn btn-warning btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>重 置 </button>
+               <button type="button" class="btn btn-danger btn-square selecpage" style="padding:2px 12px"><i class="glyphicon glyphicon-check "></i>查 询 </button>
+               <button type="button" class="btn btn-warning btn-square selecpage" style="padding:2px 12px"><i class="glyphicon glyphicon-check "></i>重 置 </button>
               </div>
              </form>
           </div>
        </div>
        <div class="panel right_listpage" style=""><%--display: none--%>
          <div class="panel-body" style="padding-top: 0px;">
-           <%--TODO: 列表模板区2-table列表--%>
+           <div class="col-lg-10">
+                <div class="pagination-panel">
+                 Page &nbsp;
+                 <a href="#" class="btn btn-sm btn-default btn-prev"><i class="fa fa-angle-left"></i></a>&nbsp;
+                 <input type="text" maxlenght="5" value="1" class="pagination-panel-input form-control input-mini input-inline input-sm text-center" style="height:29px;padding: 5px; 10px; margin-left:5px;margin-right: 5px;"/>&nbsp;
+                 <a href="#" class="btn btn-sm btn-default btn-prev"><i class="fa fa-angle-right"></i></a>&nbsp; of 6 | View &nbsp;
+                 <select class="form-control input-xsmall input-sm input-inline">
+                   <option value="20" selected="selected">20</option> <option value="50">50</option> <option value="100">100</option> <option value="150">150</option> <option value="-1">All</option>
+                 </select>
+                  <label class="pageSize">每页显示 N 条记录 </label>
+                  <label class="startRow">当前显示  第N  TO</label>
+                  <label class="endRow">N 条记录|</label>
+                  <label class="total">共 N 条记录|</label>
+                  <label class="pages">合计：N 页|</label>
+                  <label class="pageNum">当前是第 N 页</label>
+                 <%--&nbsp; records | Found total 58 records--%>
+                </div>
+               </div>
+           <%--TODO: 列表模板区2-table列表--%><%--table-hover table-striped table-bordered table-advanced tablesorter--%>
            <table class="table table-hover table-striped table-bordered table-advanced tablesorter" style="margin-bottom:0px;">
             <thead class="thead_List">
             <tr>
              <th width="2%">
                <input type="checkbox">
              </th>
-             <th width="7%">Record #</th>
-             <th>Username</th>
-             <th width="10%">Country</th>
-             <th width="10%">Gender</th>
-             <th width="7%">Order</th>
-             <th width="10%">Date</th>
-             <th width="15%">Skills</th>
-             <th width="7%">Status</th>
-             <th width="12%">Actions</th>
+             <th width="7%">id #</th>
+             <th>Title</th>
+             <th width="10%">Cid</th>
+             <th width="10%">num</th>
+             <th width="7%">price</th>
+             <th width="10%">sellPoint</th>
+             <th width="15%">created</th>
+             <th width="15%">updated</th>
+             <th width="7%">status</th>
+             <th width="7%">status</th>
+             <th width="7%">status</th>
+             <th width="12%">操 作 </th>
+
             </tr>
            </thead>
             <tbody class="tablelist" value="5,">
@@ -96,6 +122,9 @@
                </div>
               </div> </td>
              <td><span class="label label-sm label-success">Approved</span> </td>
+             <td><span class="label label-sm label-success">Approved</span> </td>
+             <td><span class="label label-sm label-success">Approved</span> </td>
+              <td><button type="button" data-toggle="tooltip" data-placement="left" title="" class="btn btn-default mbs" data-original-title="Tooltip on left">Tooltip on left</button></td>
              <td> <button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button> </td>
             </tr>
             <tr>
@@ -117,6 +146,9 @@
                </div>
               </div> </td>
              <td><span class="label label-sm label-info">Pending</span> </td>
+               <td><span class="label label-sm label-success">Approved</span> </td>
+             <td><span class="label label-sm label-success">Approved</span> </td>
+              <td><button type="button" data-toggle="tooltip" data-placement="left" title="" class="btn btn-default mbs" data-original-title="Tooltip on left">Tooltip on left</button></td>
              <td> <button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button> </td>
             </tr>
             <tr>
@@ -138,15 +170,18 @@
                </div>
               </div> </td>
              <td><span class="label label-sm label-info">Pending</span> </td>
+               <td><span class="label label-sm label-success">Approved</span> </td>
+             <td><span class="label label-sm label-success">Approved</span> </td>
+              <td><button type="button" data-toggle="tooltip" data-placement="left" title="" class="btn btn-default mbs" data-original-title="Tooltip on left">Tooltip on left</button></td>
              <td> <button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button> </td>
             </tr>
            </tbody>
 
            </table>
            <%--TODO：页码区--%>
-          <div class="">Page 1 of 4</div>
+
           <div class="" id="page" page_type="Index">
-              <div class="dataTables_paginate paging_simple_numbers" id="page_List" typenaem="Index">
+              <div class="dataTables_paginate paging_simple_numbers page_List" id="page_List"  typenaem="Index">
                <ul class="pager" style="margin:10px 0px;">
                 <li class="paginate_button previous disabled"><span>第一页</span></li>
                 <li class="paginate_button previous disabled"><span>上 一页</span></li>
@@ -161,7 +196,7 @@
        </div>
      </div>
     <%--TODO: addEdit 模板--%>
-     <div class="col-lg-12 addEdit">
+     <div class="col-lg-12 addEdit" style="display: none;">
        <ul class="nav ul-edit nav-tabs responsive hidden-xs hidden-sm">
         <li class="active"><a href="#tab-form-actions" data-toggle="tab">基本 信息</a> </li>
         <li class=""><a href="#tab-two-columns" data-toggle="tab">商品 描述</a> </li>
@@ -172,7 +207,7 @@
         <li class=""><a href="#emta" data-toggle="tab">EMTA 信息</a> </li>
        </ul>
       <%--TODO: 添加表单 TAB 内容区--%>
-      <form action="#" id="from2" class="horizontal-form">
+      <form action="#" id="from2" formtype="" class="horizontal-form">
        <div style=" margin-top: 5px !important;" class="tab-content responsive hidden-xs hidden-sm"><%--del  pan mtl mbn--%>
          <div id="tab-form-actions" class="tab-pane fade active in">
           <div class="panel-body pan">
@@ -421,8 +456,8 @@
          </div>
         </div>
        <%--TODO: addEdit 提交表单--%>
-        <div class="form-actions text-right pal">
-          <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+        <div class="form-actions text-right pal addeditsubmit">
+          <button type="submit" class="btn btn-primary" formtype="">Submit</button>&nbsp;
           <button type="button" class="btn btn-green">Cancel</button>
          </div>
        </form>

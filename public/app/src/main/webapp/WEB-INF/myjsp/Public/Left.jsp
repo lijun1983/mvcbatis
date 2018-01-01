@@ -23,8 +23,8 @@
      <li class=""> <a href="#"> <i class="fa fa-desktop fa-fw">
         <div class="icon-bg bg-pink"></div></i><span class="menu-title">商品 管理</span><span class="fa arrow"></span></a>
       <ul class="nav nav-second-level collapse " style=""><%--in--%>
-       <li><a href="#" idurl="/itemlist"><i class="fa fa-align-left"></i><span class="submenu-title">商品 列表</span></a> </li>
-       <li><a href="#" idurl="/Catlist"><i class="fa fa-angle-double-left"></i><span class="submenu-title">栏目 列表</span></a> </li>
+       <li><a href="#" pageurl="item-list" javaurl="/item/list" pageType ="pagerows"><i class="fa fa-align-left"></i><span class="submenu-title">商品 列表</span></a> </li>
+       <li><a href="#" pageurl="/Catlist" javaurl="/Catlist/list"><i class="fa fa-angle-double-left"></i><span class="submenu-title">栏目 列表</span></a> </li>
        <li><a href="#"><i class="fa fa-align-right"></i><span class="submenu-title">Right Sidebar</span></a> </li>
        <li><a href="#"><i class="fa fa-angle-double-right"></i><span class="submenu-title">Right Sidebar Collapsed</span></a> </li>
        <li><a href="#"><i class="fa fa-header"></i><span class="submenu-title">Horizontal Menu</span></a> </li>
@@ -39,8 +39,8 @@
        <li class=""> <a href="#"> <i class="fa fa-desktop fa-fw">
         <div class="icon-bg bg-pink"></div></i><span class="menu-title">后台模板整理</span><span class="fa arrow"></span></a>
       <ul class="nav nav-second-level collapse " style="">
-       <li><a href="#" idurl="/navselect-list-add-table"><i class="fa fa-align-left"></i><span class="submenu-title">nav查询 列表 addEdit 表单</span></a> </li>
-       <li><a href="#" idurl="/navselect-list"><i class="fa fa-angle-double-left"></i><span class="submenu-title">nav查询 列表</span></a> </li>
+       <li><a href="#" pageurl="/navselect-list-add-table"><i class="fa fa-align-left"></i><span class="submenu-title">nav查询 列表 addEdit 表单</span></a> </li>
+       <li><a href="#" pageurl="/navselect-list"><i class="fa fa-angle-double-left"></i><span class="submenu-title">nav查询 列表</span></a> </li>
        <li><a href="#"><i class="fa fa-align-right"></i><span class="submenu-title">Right Sidebar</span></a> </li>
        <li><a href="#"><i class="fa fa-angle-double-right"></i><span class="submenu-title">Right Sidebar Collapsed</span></a> </li>
        <li><a href="#"><i class="fa fa-header"></i><span class="submenu-title">Horizontal Menu</span></a> </li>
