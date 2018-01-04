@@ -227,8 +227,8 @@
                  </div>
                  <div class="col-md-6">
                     <div class="form-group">
-                         <label for="#" class="control-label">name:</label>
-                         <input id="#" name="cid" type="text" value="" title="" placeholder="name" class="form-control" style="position: relative;">
+                         <label for="#" class="control-label">请选择栏目:</label>
+                         <input id="#" name="cid" type="text" value="" title="" placeholder="请选择栏目" class="form-control" style="position: relative;">
                          <%--<button type="button" data-target="#modal-full-width" data-toggle="modal" class="btn btn-yellow" style="position: absolute;top:23px;left: 75%;height:25px;padding:0px;width: 20% !important;">选 择</button>--%>
                          <button type="button" data-target="#modal-full-width" data-toggle="modal" class="btn btn-blue" style="position: absolute;top:23px;left: 75%;height:25px;padding:0px;width: 20% !important;">选 择</button>
                       <span class="help-block text-danger">error</span>
@@ -334,8 +334,8 @@
                   </div>
                   <div class="col-md-2 ">
                      <div class="form-group">
-                        <label for="#" class="control-label">File input:</label>
-                       <input id="" type="file" />
+                        <label for="#" class="control-label">上传 图片:</label>
+                       <input id="img1" type="file" />
                        <p class="help-block">some help text here.</p>
                      </div>
                   </div>
@@ -442,6 +442,16 @@
               </div>
              </div>
             </div>
+           <div class="row fileupload-buttonbar">
+               <div class="col-lg-12">
+                 <div class="form-group">
+                    <label for="#" class="control-label">上传 图片:</label>
+                   <input id="img2" type="file" style="height: 25px;">
+                   <p class="help-block">some help text here.</p>
+                 </div>
+               </div>
+          </div>
+
          </div>
          <div id="ya" class="tab-pane fade">
 5
@@ -476,38 +486,23 @@
              <form action="#" class="">
                <div class="col-md-12" id="TreeTitle">
                   <div class="form-group">
-                      <label for="inputPhone" class="control-label Q">栏目 名称</label>
-                      <label for="inputPhone" class="control-label W">I D</label>
-                      <label for="inputPhone" class="control-label E">PID</label>
-                      <label for="inputPhone" class="control-label R">path</label>
-                      <label for="inputPhone" class="control-label T">level</label>
-                      <label for="inputPhone" class="control-label Y">所属栏目</label>
-                      <label for="inputPhone" class="control-label U">所属类型</label>
-                      <label for="inputPhone" class="control-label I">筛选数量</label>
-                      <label for="inputPhone" class="control-label O">筛选id</label>
-                      <label for="inputPhone" class="control-label QQ">是否显示</label>
-                      <label for="inputPhone" class="control-label QW">图标Class</label>
-                      <label for="inputPhone" class="control-label QE">sort</label>
-                      <label for="inputPhone" class="control-label P">操&nbsp;&nbsp;作&nbsp;&nbsp;区</label>
-                    <!-- <!-- <input id="inputPhone" type="text" placeholder="" class="form-control">-->
+                      <label for="#" class="control-label Q">栏目 名称</label>
+                      <label for="#" class="control-label W">I D</label>
+                      <label for="#" class="control-label E">PID</label>
+                      <label for="#" class="control-label R">path</label>
+                      <label for="#" class="control-label T">level</label>
+                      <label for="#" class="control-label Y">所属栏目</label>
+                      <label for="#" class="control-label U">所属类型</label>
+                      <label for="#" class="control-label I">筛选数量</label>
+                      <label for="#" class="control-label O">筛选id</label>
+                      <label for="#" class="control-label QQ">是否显示</label>
+                      <label for="#" class="control-label QW">图标Class</label>
+                      <label for="#" class="control-label QE">sort</label>
+                      <label for="#" class="control-label P">操&nbsp;&nbsp;作&nbsp;&nbsp;区</label>
                   </div>
-
               </div>
                <div id="Tree" class="col-md-12"></div>
-               <%--<table class="table table-hover table-striped table-bordered table-advanced tablesorter" style="margin-bottom:0px;">
-                <thead class="treename">
-                <tr class="">
-                   <th width="2%">
-                     <input type="checkbox">
-                   </th>
-                   <th width="7%">id #</th>
-                   <th>Title</th> <th width="10%">Cid</th><th width="10%">num</th><th width="7%">price</th>
-                   <th width="10%">sellPoint</th><th width="15%">created</th><th width="15%">updated</th>
-                   <th width="7%">status</th><th width="7%">status</th><th width="7%">status</th><th width="12%">操 作 </th>
-                </tr>
-                <div id="Tree" class="col-md-12"></div>
-               </thead>
-               </table>--%>
+
              </form>
            </div>
            <div class="modal-footer">
