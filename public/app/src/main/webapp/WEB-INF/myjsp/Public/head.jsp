@@ -16,6 +16,8 @@
     <link type="text/css" rel="stylesheet" href="/vendors/animate.css/animate.css">
     <link type="text/css" rel="stylesheet" href="/vendors/jquery-pace/pace.css">
 <link type="text/css" rel="stylesheet" href="/appjqcss/icheck/skins/all.css">
+<link type="text/css" rel="stylesheet" href="/appjqcss/Layouts/Cat/CatenewTree_append.css">
+
 <%--<link type="text/css" rel="stylesheet" href="/appjqcss/icheck/skins/minimal/_all.css">--%>
 
     <link type="text/css" rel="stylesheet" href="/vendors/bootstrap-daterangepicker/daterangepicker-bs3.css">

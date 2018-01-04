@@ -95,6 +95,7 @@ var myapp = myPlugin = {
    // $( document ).tooltip();
     $("[data-toggle='tooltip']").tooltip({});
   },
+  //TODO:tipso 提示工具（Tooltip）插件
   tipso:function()
   {
     $('.tip2').tipso({
@@ -102,15 +103,7 @@ var myapp = myPlugin = {
       position:'left'
     });
   },
-  replaceWith:function (value)
-  {
-    //$("p").replaceWith("<b>Paragraph. </b>");
-    //value.replaceWith("<a>###</a>");
 
-    console.log(value);
-
-
-  },
 
   //TODO: 后加载记录集的 全选  并 将 input value 遍历成 字符串 放一个 dome 中
   QuanxianCheckbox:function (obj)

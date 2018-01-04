@@ -47,10 +47,9 @@
         success: function(json,result)
         {
           // console.log(json);
-          LoadPageList['json'] = json;
-          //   console.log(obj);
           if(json['size'] > 0)
           {
+            LoadPageList['json'] = json;
             //myPlugin.ItmeListData(json);//返回的列表
             jQuery(this).initlist({LoadPageList:LoadPageList}); //列表
             //TODO:参考 gd.js 521行

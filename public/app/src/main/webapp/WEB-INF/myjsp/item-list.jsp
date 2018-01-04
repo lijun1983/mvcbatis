@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
 
+<link type="text/css" rel="stylesheet" href="/appjqcss/Layouts/Cat/CatenewTree_append.css">
 
+
+<script src="/appjqcss/Layouts/Cat/CatPlugin.js"></script>
+<script src="/appjqcss/Layouts/Cat/Cat.js"></script>
 <script src="/appjqcss/Layouts/RightAddEdit.js"></script>
 
 
@@ -13,7 +17,7 @@
         <div class="panel-body">
          <%--TODO: 列表模板区2-按钮区--%>
           <div class="demo-btn reghtaddeditbutton" style="margin-top:0px;float: left;">
-           <button type="button" class="A  btn btn-default btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>新 增 </button>
+           <button type="button" class="A  btn btn-default btn-square" style="padding:2px 12px "><i class="glyphicon glyphicon-check"></i>新 增 </button>
            <button type="button" class="B btn btn-primary btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>修 改 </button>
            <button type="button" class="C btn btn-success btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>删 除 </button>
            <button type="button" class="F btn btn-info btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>返 选 </button>
@@ -196,7 +200,7 @@
        </div>
      </div>
     <%--TODO: addEdit 模板--%>
-     <div class="col-lg-12 addEdit" style="display: none;">
+     <div class="col-lg-12 addEdit" style=""><%--display: none;--%>
        <ul class="nav ul-edit nav-tabs responsive hidden-xs hidden-sm">
         <li class="active"><a href="#tab-form-actions" data-toggle="tab">基本 信息</a> </li>
         <li class=""><a href="#tab-two-columns" data-toggle="tab">商品 描述</a> </li>
@@ -222,13 +226,12 @@
                      </div>
                  </div>
                  <div class="col-md-6">
-                     <div class="form-group">
+                    <div class="form-group">
                          <label for="#" class="control-label">name:</label>
-                         <select id="#" class="form-control">
-                             <option value="">Male</option>
-                             <option value="">Female</option>
-                         </select>
-                         <span class="help-block text-danger">error</span>
+                         <input id="#" name="cid" type="text" value="" title="" placeholder="name" class="form-control" style="position: relative;">
+                         <%--<button type="button" data-target="#modal-full-width" data-toggle="modal" class="btn btn-yellow" style="position: absolute;top:23px;left: 75%;height:25px;padding:0px;width: 20% !important;">选 择</button>--%>
+                         <button type="button" data-target="#modal-full-width" data-toggle="modal" class="btn btn-blue" style="position: absolute;top:23px;left: 75%;height:25px;padding:0px;width: 20% !important;">选 择</button>
+                      <span class="help-block text-danger">error</span>
                      </div>
                  </div>
                  <div class="col-md-6">
@@ -461,5 +464,58 @@
           <button type="button" class="btn btn-green">Cancel</button>
          </div>
        </form>
+       <%--TODO: 选择栏目--%>
+       <div id="modal-full-width" tabindex="-1" role="dialog" aria-labelledby="modal-full-width-label" aria-hidden="true" class="modal fade">
+         <div class="modal-dialog modal-full-width">
+          <div class="modal-content">
+           <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
+            <h4 id="modal-full-width-label" class="modal-title">Modal Full Width</h4>
+           </div>
+           <div class="modal-body">
+             <form action="#" class="">
+               <div class="col-md-12" id="TreeTitle">
+                  <div class="form-group">
+                      <label for="inputPhone" class="control-label Q">栏目 名称</label>
+                      <label for="inputPhone" class="control-label W">I D</label>
+                      <label for="inputPhone" class="control-label E">PID</label>
+                      <label for="inputPhone" class="control-label R">path</label>
+                      <label for="inputPhone" class="control-label T">level</label>
+                      <label for="inputPhone" class="control-label Y">所属栏目</label>
+                      <label for="inputPhone" class="control-label U">所属类型</label>
+                      <label for="inputPhone" class="control-label I">筛选数量</label>
+                      <label for="inputPhone" class="control-label O">筛选id</label>
+                      <label for="inputPhone" class="control-label QQ">是否显示</label>
+                      <label for="inputPhone" class="control-label QW">图标Class</label>
+                      <label for="inputPhone" class="control-label QE">sort</label>
+                      <label for="inputPhone" class="control-label P">操&nbsp;&nbsp;作&nbsp;&nbsp;区</label>
+                    <!-- <!-- <input id="inputPhone" type="text" placeholder="" class="form-control">-->
+                  </div>
+
+              </div>
+               <div id="Tree" class="col-md-12"></div>
+               <%--<table class="table table-hover table-striped table-bordered table-advanced tablesorter" style="margin-bottom:0px;">
+                <thead class="treename">
+                <tr class="">
+                   <th width="2%">
+                     <input type="checkbox">
+                   </th>
+                   <th width="7%">id #</th>
+                   <th>Title</th> <th width="10%">Cid</th><th width="10%">num</th><th width="7%">price</th>
+                   <th width="10%">sellPoint</th><th width="15%">created</th><th width="15%">updated</th>
+                   <th width="7%">status</th><th width="7%">status</th><th width="7%">status</th><th width="12%">操 作 </th>
+                </tr>
+                <div id="Tree" class="col-md-12"></div>
+               </thead>
+               </table>--%>
+             </form>
+           </div>
+           <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+           </div>
+          </div>
+         </div>
+        </div>
      </div>
    </div>
