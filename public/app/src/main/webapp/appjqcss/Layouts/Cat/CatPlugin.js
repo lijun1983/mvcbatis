@@ -265,7 +265,7 @@ var myapp = CatPlugin = {
   //TODO: initPicUpload==================STARTS
   initPicUpload:function ()
   {
-
+     alert('initPicUpload')
   },
 
 
