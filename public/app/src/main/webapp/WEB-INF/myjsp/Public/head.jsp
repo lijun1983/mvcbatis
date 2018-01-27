@@ -16,7 +16,7 @@
     <link type="text/css" rel="stylesheet" href="/vendors/animate.css/animate.css">
     <link type="text/css" rel="stylesheet" href="/vendors/jquery-pace/pace.css">
 <link type="text/css" rel="stylesheet" href="/appjqcss/icheck/skins/all.css">
-<link type="text/css" rel="stylesheet" href="/appjqcss/Layouts/Cat/CatenewTree_append.css">
+
 
 <%--<link type="text/css" rel="stylesheet" href="/appjqcss/icheck/skins/minimal/_all.css">--%>
 
@@ -56,17 +56,49 @@
     <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <script src="/vendors/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
     <script src="/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
-<!--这是后台首页框架js方法；需调用上述的插件-->
+
+<!--TODO:装载右侧的公共常用插件-->
+<link type="text/css" rel="stylesheet" href="/appjqcss/sco.message/sco.message.css">
+<script src="/appjqcss/sco.message/sco.message.js"></script>
+<script src="/appjqcss/Tipso/js/tipso.js"></script>
     <script src="/appjqcss/Layouts/main.js"></script>
     <script src="/appjqcss/test.js"></script>
-<!--装载右侧的公共部份-->
 
-<script src="/appjqcss/Tipso/js/tipso.js"></script>
-<link type="text/css" rel="stylesheet" href="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
+   <link href="/appjqcss/kindeditor-4.1.10/themes/default/default.css" type="text/css" rel="stylesheet">
+   <script type="text/javascript" charset="utf-8" src="/appjqcss/kindeditor-4.1.10/kindeditor-all-min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/appjqcss/kindeditor-4.1.10/lang/zh_CN.js"></script>
+    <link type="text/css" rel="stylesheet" href="/appjqcss/Layouts/CatenewTree_append.css">
+    <script src="/appjqcss/Layouts/validate/jquery.validate.js"></script>
+    <script src="/appjqcss/Layouts/validate/jquery.form.js"></script>
+    <link type="text/css" rel="stylesheet" href="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
    <script src="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
 
-    <script src="/appjqcss/Layouts/myPlugin.js"></script>
-<script src="/appjqcss/Layouts/LoadPageList.js"></script>
+<!--TODO:装载右侧的自写的插件-->
+
+
+    <script src="/appjqcss/Layouts/myPlugin.js"></script><%-- TODO:公用函数--%>
+    <script src="/appjqcss/Layouts/myDate/myDatePlugin.js"></script><%-- TODO:时间函数--%>
+    <script src="/appjqcss/Layouts/myprice/mypricePlugin.js"></script><%-- TODO:价格 函数 --%>
+
+    <script src="/appjqcss/Layouts/LoadPage/LoadPage.js"></script><%-- TODO:click 点左加载右内容 函数--%>
+    <%--TODO:公用 js --%>
+    <script src="/appjqcss/Layouts/myCommon/MyjQeryValidatePlugin.js"></script><%--TODO：jquery表单验证 函数--%>
+    <script src="/appjqcss/Layouts/validate/MyFunctionValidatePlugin.js"></script><%--TODO：MY 函数 验证 函数--%>
+    <script src="/appjqcss/Layouts/myCommon/DomHtml.js"></script><%--TODO:所有静态HTML JS 调用 函数--%>
+    <script src="/appjqcss/Layouts/myCommon/myKindEditorPlugin.js"></script><%--TODO：文本编辑器 函数--%>
+    <script src="/appjqcss/Layouts/myCommon/TreeParamPlugin.js"></script><%--TODO：TREE 栏目树JS发函数--%>
+    <script src="/appjqcss/Layouts/myCommon/AppRightFromPlugin.js"></script><%--TODO：右侧表表单 函数--%>
+    <script src="/appjqcss/Layouts/myCommon/MySubmit.js"></script><%--TODO：右侧表单提交按钮 函数--%>
+
+    <script src="/appjqcss/Layouts/myCommon/CommonTableList.js"></script><%--TODO：右侧公共列表 函数--%>
+
+
+    <script src="/appjqcss/Layouts/myCommon/AppRight.js"></script><%--TODO：右侧公共总 JS 调用 函数--%>
+
+
+
+
+
 
 
 

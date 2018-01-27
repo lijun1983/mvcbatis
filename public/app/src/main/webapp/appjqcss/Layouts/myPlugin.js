@@ -1,9 +1,13 @@
+
+
 //TODO:用命名空间函数全局函数 常用 通用的 方法 插件写这里 对像里；统一调用
 var myapp = myPlugin = {
 
 //测试1
-  foo:function() {
-    console.log('foo');
+  foo:function(obj) {
+    console.log('fooo');
+    //console.log(obj);
+    //alert('foo')
   },
   //测试2 传参
   bar:function(param) {
@@ -19,7 +23,7 @@ var myapp = myPlugin = {
       //alert(event.type);
       // alert('3')
       $('input[type="checkbox"]:not(".switch")').iCheck({
-        checkboxClass: 'icheckbox_square-grey',
+        checkboxClass: 'icheckbox_square-blue',
         increaseArea: '20%' // optional
       });
       $('input[type="radio"]:not(".switch")').iCheck({
@@ -30,41 +34,8 @@ var myapp = myPlugin = {
 
     }
   },
-  //TODO: 13位时间戳函格式化为日期时间  1428755918000 转成 2015-03-08 21:33:18
-  UnixToDate:function (format,currDate) {
-  /*
-   ×调用
-   * var Currdate=formatDate("yyyy-MM-dd hh:mm:ss",new Date(1425821598000));
-   * console.log(Currdate);
-   * TODO:本案调用 : created=myPlugin.formatDate("yyyy-MM-dd hh:mm:ss",new Date(obj["created"]));
-   */
-  var o = {
-    "M+" :currDate.getMonth() + 1, // month
-    "d+" :currDate.getDate(), // day
-    "h+" :currDate.getHours(), // hour
-    "m+" :currDate.getMinutes(), // minute
-    "s+" :currDate.getSeconds(), // second
-    "q+" :Math.floor((currDate.getMonth() + 3) / 3), // quarter
-    "S" :currDate.getMilliseconds()
-    // millisecond
-  }
-  if (/(y+)/.test(format)) {
-    format = format.replace(RegExp.$1, (currDate.getFullYear() + "")
-      .substr(4 - RegExp.$1.length));
-  }
 
-
-  for ( var k in o) {
-    if (new RegExp("(" + k + ")").test(format)) {
-      format = format.replace(RegExp.$1, RegExp.$1.length == 1 ? o[k]
-        : ("00" + o[k]).substr(("" + o[k]).length));
-    }
-  }
-  return format;
- },
-
-
-  //TODO:通过js去掉所有的html标签，得到HTML标签中的所有内容
+    //TODO:通过js去掉所有的html标签，得到HTML标签中的所有内容
   //例：少量库存，抢完即止！<a  target="blank"  href="http://sale.jd.com/act/bxYeI1346g.html?erpad_source=erpad">“领券更优惠！”</a>
   //结果： 少量库存，抢完即止！“领券更优惠！”
   replace_htmlRemove:function (htmlremove)
@@ -98,6 +69,7 @@ var myapp = myPlugin = {
   //TODO:tipso 提示工具（Tooltip）插件
   tipso:function()
   {
+    //alert("tipso")
     $('.tip2').tipso({
       useTitle: false,
       position:'left'
@@ -108,6 +80,7 @@ var myapp = myPlugin = {
   //TODO: 后加载记录集的 全选  并 将 input value 遍历成 字符串 放一个 dome 中
   QuanxianCheckbox:function (obj)
   {
+    //console.log(obj)
     obj.on("click",function ()
     {
       var _ok = '';
@@ -143,7 +116,7 @@ var myapp = myPlugin = {
   {
     //console.log(obj)
     obj.on('ifChanged', function(event){
-        //alert(event.type + ' callback');
+        alert(event.type + ' callback');
         if($(this).is(':checked')){
           console.log("选中");
           jQuery(this).attr('checked',true);
@@ -195,38 +168,35 @@ var myapp = myPlugin = {
   },
   //TODO: 添加表单处理=====================================================
   //TODO： 给 INPUT radio  添加表单  icheck 样式 促销 与 不促销
-  RadioifChecked:function (addedit)
+  RadioifChecked:function (rightcommon)
   {
     //alert(obj)
-    addedit.find("[type='radio']").on("ifChecked", function(event){
+   // console.log(rightcommon)
+    rightcommon['from2'].find("[type=radio]").on("ifChecked", function(event){
       jQuery(this).val('促销');
       jQuery(this).attr('checked',true);
-      addedit.find('.sp').show();
-      addedit.find("[type='radio']").on("ifClicked", function(event){
+      rightcommon['from2'].find('.sp').show();
+      rightcommon['from2'].find("[type='radio']").on("ifClicked", function(event){
         jQuery(this).iCheck('uncheck');
         jQuery(this).val('不促销');
         jQuery(this).attr('checked',false);
-        addedit.find('.sp').hide();
+        rightcommon['from2'].find('.sp').hide();
       });
     });
   },
-  //TODO: 推荐到楼层样式
-  IcheckboxifChecked:function (addedit)
-  {
-    addedit.find('.row>.hot:not(".switch")').iCheck({
-      checkboxClass: 'icheckbox_square-red',
-      increaseArea: '20%' // optional
-    });
-  },
+
   //TODO: 推荐到楼层选中与不先切换
-  IcheckboxifCheckedOK:function (addedit)
+  HotCheckbox:function (rightcommon)
   {
-    addedit.find('.row>.hot').find("[type='checkbox']").on('ifChanged', function(event){
-      //alert(event.type + ' callback');
+    rightcommon['HotCheckbox'].on('ifChanged',function(event){
+     // alert(event.type + ' callback');
+      console.log($(this).is(':checked'))
+      //console.log($(this).hasClass('checked'))
+
       if($(this).is(':checked')){
         console.log("选中");
         jQuery(this).attr('checked',true);
-        var hot = $.trim(addedit.find('.row>.hot').attr('value'));
+        var hot = $.trim(rightcommon['from2'].find('.row>.hot').attr('value'));
         if(hot.length>0)
         {
           console.log('1');
@@ -250,23 +220,107 @@ var myapp = myPlugin = {
           hot += jQuery(this).val() + ',';
         }
 
-        addedit.find('.row>.hot').attr('value',hot);
+        rightcommon['from2'].find('.row>.hot').attr('value',hot);
       }
       else
       {
         console.log("没 选中 ")
-        var hotuncheck = $.trim(addedit.find('.row>.hot').attr('value'));
+        var hotuncheck = $.trim(rightcommon['from2'].find('.row>.hot').attr('value'));
         jQuery(this).attr('checked',false);
         if (hotuncheck.indexOf(hotuncheck + ',') == -1)
         {
           //console.log('6')
           //TODO：如果 appendstr 与 jQuery(this).val()有相同 通过replace()此函数将 appendstr 中移除对应 ？ input的值
           hotuncheck = hotuncheck.replace(jQuery(this).val() + ',', '');
-          addedit.find('.row>.hot').attr('value',hotuncheck);
+          rightcommon['from2'].find('.row>.hot').attr('value',hotuncheck);
         }
       }
     });
   },
+
+  //未用到 的函数
+  //TODO:message提示信息
+  bottomCenter:function (data){
+    // console.log(data)
+    $.messager.show({
+      width:300,
+      title:'My 提示信息!',
+      msg:data['msg'],//"执行状态:"+
+      showType:'slide',
+      style:{
+        right:'',
+        top:'',
+        bottom:-document.body.scrollTop-document.documentElement.scrollTop
+      }
+    });
+  },
+  //TODO:message加载进度信息
+  progress:function (data){
+    var win = $.messager.progress({
+      title:'Please waiting',
+      msg:'Loading data...'+data['msg']
+    });
+    setTimeout(function(){
+      $.messager.progress('close');
+    },5000)
+  },
+  // 格式化时间
+  formatDateTime : function(val,row){
+    var now = new Date(val);
+    return now.format("yyyy-MM-dd hh:mm:ss");
+  },
+  // 格式化连接
+  formatUrl : function(val,row){
+    if(val){
+      return "<a href='"+val+"' target='_blank'>查看</a>";
+    }
+    return "";
+  },
+  // 格式化价格
+  formatPrice : function(val,row){
+    return (val/1000).toFixed(2);
+  },
+  // 格式化商品的状态
+  formatItemStatus : function formatStatus(val,row){
+    if (val == 1){
+      return '正常';
+    } else if(val == 2){
+      return '<span style="color:red;">下架</span>';
+    } else {
+      return '未知';
+    }
+  },
+
+  serializeObject:function ()
+  {
+    var o = {};
+    var a = this.serializeArray();
+    $.each(a, function ()
+    {
+      if (o[this.name])
+      {
+        if (!o[this.name].push)
+        {
+          o[this.name] = [o[this.name]];
+        }
+        o[this.name].push(this.value || '');
+      } else
+      {
+        o[this.name] = this.value || '';
+      }
+    });
+
+    return o;
+  },
+
+  //TODO:字符串处理===========================
+
+  mysubstringLength_1:function(_str) {
+   //console.log(_str) //id,title,sellPoint,price,num,barcode,image,cid,status,created,updated,
+    _str=_str.substring(0,_str.length-1);//TODO：去除最后一个字符
+    return _str.split(",");//有下标的数据0 : "id" ["id", "title", "sellPoint", "price", "num", "barcode", "image", "cid", "status", "created", "updated"]
+  },
+
 };
 $.fn.extend({
   test:function ()

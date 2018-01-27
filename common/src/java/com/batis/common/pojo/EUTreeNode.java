@@ -6,9 +6,9 @@ import java.util.Date;
  * easyUI树形控件节点格式
  * <p>Title: EUTreeNode</p>
  * <p>Description: </p>
- * <p>Company: www.itcast.com</p>
- * @author	入云龙
- * @date	2015年9月4日上午9:13:14
+ * <p>Company:</p>
+ * @author	lijun
+ * @date
  * @version 1.0
  */
 @SuppressWarnings("ALL")

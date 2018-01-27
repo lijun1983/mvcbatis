@@ -50,7 +50,8 @@ var myapp = UnixToDate = {
         ymdhis += time.getUTCSeconds();
       }
       return ymdhis;
-    }
+    },
+
 
 };
 /* console.log(adminPage['UnixToDate'].DateToUnix('2014-5-15 20:20:20'));

@@ -1,0 +1,511 @@
+#Tree{
+    display: inline-block;position: relative;
+    width:100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    left:0%;
+    border: 1px dotted #B8D0D6;
+
+
+}
+/*标题END*/
+/*第一层*/
+.ParentNode{
+    float:left;
+    position: relative;
+    top:0%;
+    left:0%;
+    right:0%;
+    bottom:0%;
+    width:100%;
+    height:30px;
+    line-height:30px;
+    margin-bottom: 0.2%;
+
+    border-bottom: 1px dotted #B8D0D6;
+
+
+
+}
+
+
+/*1层导航标题样式*/
+.ParentNode>.t{
+    /**********一级左侧缩进样式*************/
+    float: left;
+    display: inline-block;
+    position: absolute;
+    left: 0%;
+    width:18.5%;
+    line-height: 30px;
+    margin-top:0px;
+    margin-left:2%;
+    margin-right: 0px;
+    margin-bottom:0px;
+
+}
+.tanone{
+    display: none;
+}
+.tablock{
+    display: block;
+}
+.ParentNode>ul{
+    /**********一级左侧缩进样式*************/
+    float: left!important;;
+    display: inline-block!important;;
+    list-style-type: none!important;;
+    position: absolute;
+    left:20%;
+    top:0%;
+    width: 64%;
+    height: 100%;
+    line-height: 100%;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px!important;
+    /* background-color: #0a6aa1;*/
+
+}
+
+.ParentNode>div.ok{
+    float:left;display: none;
+    position: absolute;
+    left:80%;
+    top:0%;
+    width: 60px;height:30px;line-height:30px;margin-top:0px;margin-bottom:0px;
+    text-align: center;
+}
+.TA>.ParentNode{
+    /**********二级左侧缩进样式*************/
+    width:99%;
+}
+.TA>.ParentNode>.t{
+    /**********二级左侧缩进样式*************/
+    width:19.2%;
+}
+.TA>.ParentNode>ul{
+    /**********二级左侧缩进样式*************/
+    left: 19.2%;
+    width: 65%;
+}
+.TA>.ParentNode>div.ok{
+    left:79.78%
+}
+.TA>.TA>.ParentNode{
+    /**********三级左侧缩进样式*************/
+    width:97%;
+}
+
+.TA>.TA>.ParentNode>.t{
+    /**********三级左侧缩进样式*************/
+    width:17.5%;
+}
+.TA>.TA>.ParentNode>ul{
+    /**********三级左侧缩进样式*************/
+    left: 17.56%;
+    width: 66.2%;
+}
+.TA>.TA>.ParentNode>div.ok{
+    left:79.4%
+}
+
+
+.TA>.TA>.TA>.ParentNode{
+    /**********四级左侧缩进样式*************/
+    width:95%;
+}
+.TA>.TA>.TA>.ParentNode>.t{
+    /**********四级左侧缩进样式*************/
+    width:15.7%;
+}
+.TA>.TA>.TA>.ParentNode>ul{
+    /**********四级左侧缩进样式*************/
+    left: 15.8%;
+    width: 67.7%;
+}
+.TA>.TA>.TA>.ParentNode>div.ok{
+    left:79%;/**********四级左侧缩进样式*************/
+}
+
+.TA>.TA>.TA>.TA>.ParentNode{
+    /**********五 级左侧缩进样式*************/
+
+    width:93%;
+}
+.TA>.TA>.TA>.TA>.ParentNode>.t{
+    /**********五 级左侧缩进样式*************/
+    width:14%;
+}
+.TA>.TA>.TA>.TA>.ParentNode>.t>span {
+    width: 85%;
+}
+.TA>.TA>.TA>.TA>.ParentNode>ul{
+    /**********五 级左侧缩进样式*************/
+    left: 14%;
+    width: 69.2%;
+}
+.TA>.TA>.TA>.TA>.ParentNode>div.ok{
+    left:79%;/**********五 级左侧缩进样式*************/
+}
+.TA>.TA>.TA>.TA>.ParentNode > ul > li.C{
+    position: absolute;
+    left: 9%;
+    width: 20%;
+}
+.TA>.TA>.TA>.TA>.ParentNode > ul > li.D{
+    position: absolute;
+    left: 30%;
+    width: 3%;
+}
+.TA>.TA>.TA>.TA>.ParentNode > ul > li.E{
+    position: absolute;
+    left: 34%;
+    width: 10%;
+}
+.TA>.TA>.TA>.TA>.ParentNode > ul > li.F{
+    position: absolute;
+    left: 45%;
+    width: 15%;
+}
+.TA>.TA>.TA>.TA>.ParentNode > ul > li.G{
+    position: absolute;
+    left: 61%;
+    width: 3%;
+}
+.TA>.TA>.TA>.TA>.ParentNode > ul > li.H{
+    position: absolute;
+    width: 10%;
+    left: 65%;
+}
+.TA>.TA>.TA>.TA>.ParentNode > ul > li.I{
+    position: absolute;
+    left: 76%;
+    width: 3% !important;
+}
+
+
+.ParentNode>.t>i{
+    position: relative;
+    left: 0%;
+    float: left;
+    display: inline-block;
+    line-height: 30px;
+    width: 10%;
+    height: 100%;
+    margin-left:5px;
+    cursor: pointer;
+    color: #777777;
+    text-decoration: none;
+    /* background: red;*/
+}
+.ParentNode>.t>span{
+    float: left;
+    /*display: inline-block;*/
+    position: relative;
+    left: 0%;
+    cursor: pointer;
+    line-height: 30px;
+    height: 30px;
+    width: 88%;
+    /* background: salmon;*/
+
+}
+.TA{
+
+    /*display: inline-block;*/
+    position: relative;
+    left:0%;
+    top:0px;
+    width:100%;
+    height:auto;
+    /*border: 1px dotted #B8D0D6;*/
+    margin-top:0px;
+    margin-bottom: 0px;
+    margin-left:1%;
+    /*cursor: pointer;*/
+    /*background: salmon;*/
+
+}
+.TA>.TA{
+
+    /*display: inline-block;*/
+    position: relative;
+    left:0%;
+    top:0px;
+    width:100%;
+    height:auto;
+
+    margin-top:0px;
+    margin-bottom: 0px;
+    margin-left:2%;
+
+
+}
+.ParentNode>.TA>.ParentNode>{
+    float: left;
+    display: inline-block;
+    position: relative;
+    left: 0%;
+    width:20%;
+    line-height: 30px;
+    margin-top:0px;
+    margin-left:0px;
+    margin-right: 0px;
+    margin-bottom:0px;
+}
+
+/**********************************ul**************************/
+
+
+.ParentNode>div.ok>i{
+    display: inline-block;
+    line-height: 30px;
+    width: 50%;
+    height:100%;
+    cursor: pointer;
+}
+.ParentNode>.editArea{
+
+
+    position: absolute!important;
+
+    right:0% ;
+    top:0%;
+    height:30px;line-height:30px;margin-top:0px;margin-bottom:0px;
+    text-align: center;
+}
+.ParentNode>.editArea>span{
+    display: inline-block;
+    line-height: 30px;
+    height: 30px !important;
+    cursor: pointer;
+    background-color: rgba(88, 97, 106, 0.25);
+
+
+}
+
+.ParentNode>ul{
+    /**********一级左侧缩进样式*************/
+    float: left!important;;
+    display: inline-block!important;;
+    list-style-type: none!important;;
+    position: absolute;
+    left:20%;
+    top:0%;
+    width: 64.3%;
+    height: 100%;
+    line-height: 100%;
+    padding-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px!important;
+    /* background-color: #0a6aa1;*/
+
+}
+.ParentNode>ul>li{
+    float:left ;
+    display:inline-block;
+    list-style-type:none;
+    position: absolute;
+    left:0%;
+    top:0%;
+    width: 5%;
+    height: 100%;
+    line-height: 30px;
+    text-align: center;
+    margin-bottom:0px;
+    margin-right: 1%;
+    overflow:hidden;/*文字多出宽度不换行隐藏文字*/
+
+}
+.ParentNode>ul>li.A{
+    position: absolute;
+    left: 0%;
+    width: 3%;
+    height: 100%;
+
+
+
+}
+.ParentNode>ul>li.B{
+    position: absolute;
+    left: 3%;
+    width: 5%;
+    height: 100%;
+    text-align: center;
+
+    /* background: skyblue;
+*/
+}
+.ParentNode>ul>li.C{
+    position: absolute;
+    left: 9%;
+    width: 20%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+   /*  background: silver;*/
+
+}
+.ParentNode>ul>li.C>select{
+    width: 100%;
+    height: 98%;
+    line-height: 30px;
+;
+}
+.ParentNode>ul>li.D{
+    position: absolute;
+    left: 30%;
+    width: 3%;
+    height: 100%;
+    line-height: 30px;
+
+
+}
+.ParentNode>ul>li.D>select{
+    width: 100%;
+    height: 98%;
+    line-height: 30px;
+
+}
+.ParentNode>ul>li.E{
+    position: absolute;
+    left: 34%;
+    width: 10%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+
+}
+
+.ParentNode>ul>li.E>select{
+    width: 100%;
+    height: 98%;
+    line-height: 30px;
+
+}
+.ParentNode>ul>li.F{
+    position: absolute;
+    left: 45%;
+    width: 15%;
+    height: 30px;
+    line-height: 30px;
+
+
+}
+
+.ParentNode>ul>li.F>select{
+    width: 100%;
+    height: 98%;
+    line-height: 30px;
+
+}
+.ParentNode>ul>li.G{
+    position: absolute;
+    left: 61%;
+    width: 3%;
+    height: 30px;
+    line-height: 30px;
+
+
+}
+
+.ParentNode>ul>li.H{
+    position: absolute;
+    left: 65%;
+    width: 10%;
+    height: 30px;
+    line-height: 30px;
+
+
+}
+.ParentNode>ul>li.I{
+    position: absolute !important;
+    left: 76%;
+    width: 3% !important;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+
+
+
+}
+.ParentNode>ul>li.J{
+    position: absolute !important;
+    left: 80%;
+    width: 14%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+
+
+
+}
+.ParentNode>ul>li.K{
+    position: absolute !important;
+    left: 95%;
+    width: 3% !important;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+
+
+
+}
+
+.icheckbox_minimal-grey {
+    background-position: 0 0;
+}
+.icheckbox_minimal-grey.hover {
+    background-position: -20px 0;
+}
+.icheckbox_minimal-grey.checked {
+    background-position: -40px 0;
+}
+.icheckbox_minimal-grey.disabled {
+    background-position: -60px 0;
+    cursor: default;
+}
+.icheckbox_minimal-grey.checked.disabled {
+    background-position: -80px 0;
+}
+.iradio_minimal-grey {
+    background-position: -100px 0;
+}
+.iradio_minimal-grey.hover {
+    background-position: -120px 0;
+}
+.iradio_minimal-grey.checked {
+    background-position: -140px 0;
+}
+.iradio_minimal-grey.disabled {
+    background-position: -160px 0;
+    cursor: default;
+}
+.iradio_minimal-grey.checked.disabled {
+    background-position: -180px 0;
+}
+.icheckbox_minimal-grey, .iradio_minimal-grey {
+    display: inline-block;
+    /*display: block;*/
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+    width: 18px;
+    height: 20px;
+    background: url(grey.png) no-repeat;
+    border: none;
+    cursor: pointer;
+}
+ins, .iCheck-helper {
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    display: block;
+    width: 140%;
+    height: 140%;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    opacity: 0;
+    background: rgb(255, 255, 255);}

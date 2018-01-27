@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
- <script src="/appjqcss/Layouts/RightAddEdit.js"></script>
+ <script src="/appjqcss/Layouts/item/Item-This.js"></script>
    <div class="row">
     <div class="col-lg-12">
      <%--TODO: 列表模板区1--%>

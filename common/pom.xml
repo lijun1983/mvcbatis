@@ -28,6 +28,7 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-io</artifactId>
         </dependency>-->
+        <!--TODO:图片上传需的组件-->
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
@@ -38,6 +39,7 @@
             <artifactId>jackson-databind</artifactId>
         </dependency>
         <!-- httpclient -->
+        <!--TODO:图片上传需的组件-->
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>

@@ -1,6 +1,7 @@
 package com.batis.service;
 
 import com.batis.common.pojo.EasyUIDateGrid;
+import com.batis.common.pojo.TaotaoResult;
 import com.batis.pojo.TbItem;
 
 /**
@@ -12,6 +13,7 @@ public interface ItemService
     // TODO : 通过一个 物理 ID 返回一条记录 itemId表示一个 ID 字段 引入 com.mymvcbatis.pojo.TbItem
     TbItem getItemById(long itemId);
     EasyUIDateGrid getItemList(int pageNum, int pageSize);
+    TaotaoResult createItem(TbItem item,String desc, String itemParam) throws Exception;
 }
 
 

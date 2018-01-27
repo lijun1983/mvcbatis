@@ -1,13 +1,12 @@
 package com.batis.controller;
 
 import com.batis.common.pojo.EasyUIDateGrid;
+import com.batis.common.pojo.TaotaoResult;
 import com.batis.pojo.TbItem;
 import com.batis.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -42,11 +41,29 @@ public class ItemController
 	//@RequestMapping("/item/item-list")
 	@RequestMapping("/item/list")
 	@ResponseBody
-	public EasyUIDateGrid getItemList(Integer pageNum, Integer pageSize)
+	//public EasyUIDateGrid getItemList(Integer pageNum, Integer pageSize)
+	public EasyUIDateGrid getItemList(@RequestParam(value = "pageNum",defaultValue = "1")int pageNum,@RequestParam(value = "pageSize",defaultValue = "5")int pageSize)
 	{
-		EasyUIDateGrid result = itemService.getItemList(pageNum,pageSize);
+		//EasyUIDateGrid result = itemService.getItemList(pageNum,pageSize);//这里也可以不用客户端定义 直截在这手动输入 1,5
+		EasyUIDateGrid result = itemService.getItemList(pageNum,pageSize);//3115 这里也可以不用客户端定义 直截在这手动输入 1,5
 		return result;
 	}
+
+  /**
+   *TODO:商品添加
+   * @param item  通过对像接收表单 注意 客户端JSP页面的 字段必须与 com.batis.pojo.TbItem 类文件定义的属性相同 且还得注意类型
+   * @param desc  商品描述
+   * @param itemParams  商品规格
+   * @return  json 数据
+   *
+   */
+  @RequestMapping(value="/item/save", method=RequestMethod.POST)
+  @ResponseBody
+  private TaotaoResult createItem(TbItem item, String desc, String itemParams) throws Exception {
+    TaotaoResult result = itemService.createItem(item,desc,itemParams);
+    return result;
+  }
+
 
 
 }

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <link type="text/css" rel="stylesheet" href="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
    <script src="/appjqcss/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
-   <script src="/appjqcss/Layouts/RightAddEdit.js"></script>
+   <script src="/appjqcss/Layouts/item/Item-This.js"></script>
    <div class="row">
  <%--TODO: table列表 按钮区 查询表单区- --%>
     <div class="col-lg-12">
