@@ -9,6 +9,7 @@ var myapp = CommonTableList = {
       //console.log(data)
       if(data['rows'].length>0)
       {
+
         $.each(data['rows'],function (i,v)
         {
           //console.log(this)
@@ -24,7 +25,8 @@ var myapp = CommonTableList = {
             v['sellPoint'] = myPlugin.replace_htmlRemove(v['sellPoint']);
           v['newsellPoint'] = '<span  data-tipso="'+v['sellPoint']+'" class="tipso_style tip2">广告词</span>';
 
-          v['Plugin']   = '<button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button>'
+          //v['Plugin']   = '<button type="button" data-toggle="tooltip" data-original-title="修改当前行"  class="btn btn-default btn-xs "><i class="glyphicon glyphicon-pencil"></i>&nbsp;  </button>&nbsp; <button type="button" data-toggle="tooltip" data-original-title="删除当前行" class="btn btn-danger btn-xs "><i class="glyphicon glyphicon-minus"></i></button>'
+         v['Plugin']   = DomHtml.LineButton();
         });
         //console.log(data['rows'])
         mythis['listdata'] = data; //TODO:将返回的数据赋给 定义的 全局变量 接受$post的返回值
@@ -125,10 +127,8 @@ var myapp = CommonTableList = {
     jQuery("[id='" + mythis.appright_Id + "'] tbody").empty().append(rowsdata);
     //TODO:添加 iCheck样式
     jQuery("[id='" + mythis.appright_Id + "'] tbody tr input[type=checkbox]").iCheck({checkboxClass: 'icheckbox_square-blue',increaseArea: '20%'});
-    //$("#currentpageIndex").html(pn);
     //TODO:每 一行 tr 的按钮
     jQuery("[id='" + mythis.appright_Id + "'] tbody>tr>.buttonClick").each(function(index, element){
-      // AppRightFromPlugin.buttonClick(mythis,jQuery(this));
       jQuery(element).children().each(function(index, element){
         jQuery(element).unbind("click").click(function(){
           switch(index){
@@ -140,11 +140,8 @@ var myapp = CommonTableList = {
     });
     //TODO: 查询 重置 上一页 下一页 第一页 上一页 末页 下一页
     $("#"+mythis.appright_Id).find('.selecpage').each(function (index, element){
-      //console.log(index)
-      //console.log(element)
       jQuery(element).unbind("click").click(function ()
       {
-        //alert('3')
         switch (index){
           case 0:jQuery(element).elementClickselecpage({mythis:mythis,tag:'select',});break;     //查询
           case 1:jQuery(element).elementClickselecpage({mythis:mythis,tag:'Reset',});break;     //重置
@@ -162,6 +159,7 @@ var myapp = CommonTableList = {
       CommonTableList.MyCheckbox(mythis),//TODO:自定义追 加选择
       CommonTableList.SelectPageSelect(mythis);//TODO:选中select每页显示多少条记录数
       myPlugin.tipso();//广告词  提示
+      myPlugin.tooltip();//行操作 提示
       CommonTableList.clickpage(mythis);//TODO:cleck当前分页
     //this.registermousehover();//TODO:添加鼠标悬浮事件
   },

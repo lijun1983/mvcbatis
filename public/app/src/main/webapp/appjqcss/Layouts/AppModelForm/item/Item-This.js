@@ -316,7 +316,7 @@ jQuery(function () {
       { field: 'created', title: 'created',},//formatter: myPlugin.UnixToDate("yyyy-MM-dd hh:mm:ss")
       { field: 'updated', title: 'updated',},
       { field: 'newsellPoint',title: '广告词',},
-      { field: 'Plugin',title: '操作',},
+      { field: 'Plugin',title: '操作',style:'width:10%'},
     ],
     RightListDom:true,              //TODO:是否显示列表
     addEdit:false,                   //TODO：是否显示 添加修改表单
@@ -344,7 +344,7 @@ jQuery(function () {
       { field: 'created', title: 'created',},//formatter: myPlugin.UnixToDate("yyyy-MM-dd hh:mm:ss")
       { field: 'updated', title: 'updated',},
       //{ field: 'paramData',title: '商品规格参数模板字段', width: 'auto', align: 'center' },
-      { field: 'Plugin',title: '操作',},
+      { field: 'Plugin',title: '操作',style:'width:10%'},
     ],
   });
 

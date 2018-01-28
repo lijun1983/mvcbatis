@@ -26,7 +26,7 @@
        <li><a href="#" pageurl="item-list" javaurl="" pageType ="pagerows"><i class="fa fa-align-left"></i><span class="submenu-title">商品 列表</span></a> </li>
        <%--/item/param/list--%>
        <li><a href="#" pageurl="item-param-list" javaurl=""><i class="fa fa-angle-double-left"></i><span class="submenu-title">商品 规格参数</span></a> </li>
-       <li><a href="#" pageurl="/Catlist" javaurl="/Catlist/list"><i class="fa fa-angle-double-left"></i><span class="submenu-title">栏目 列表</span></a> </li>
+       <li><a href="#" pageurl="item-cat-list" javaurl="/Catlist/list"><i class="fa fa-angle-double-left"></i><span class="submenu-title">栏目 列表</span></a> </li>
        <li><a href="#"><i class="fa fa-align-right"></i><span class="submenu-title">Right Sidebar</span></a> </li>
        <li><a href="#"><i class="fa fa-angle-double-right"></i><span class="submenu-title">Right Sidebar Collapsed</span></a> </li>
        <li><a href="#"><i class="fa fa-header"></i><span class="submenu-title">Horizontal Menu</span></a> </li>

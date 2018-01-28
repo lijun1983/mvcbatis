@@ -9,54 +9,10 @@
        <div class="panel right_select" style="margin-bottom: 0px;">
         <div class="panel-body">
          <%--TODO: 列表模板区2-按钮区--%>
-          <div class="demo-btn reghtaddeditbutton" style="margin-top:0px;float: left;">
-            <button type="button" typename="add" class="A btn btn-default btn-square" style="padding:2px 12px;"><i class="glyphicon glyphicon-check"></i>新 增 </button>
-           <button type="button" typename="edit"  class="B btn btn-primary btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>修 改 </button>
-           <button type="button" typename="del"  class="C btn btn-success btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>删 除 </button>
-           <button type="button" typename="xuan"  class="F btn btn-info btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>返 选 </button>
-            <button type="button" typename="retu"  class="G btn btn-info btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-check"></i>返回列表 </button>
-          </div>
+          <div class="demo-btn reghtaddeditbutton" style="margin-top:0px;padding-bottom:0px;float: left;"></div>
           <%--TODO: 列表模板区2-查询表单区--%>
-           <form action="#" id="from1" style="height: 31px;">
-              <div class="">
-               <div class="row">
-                <div class="col-md-2" style="height: 31px;width: 13%;">
-                 <div class="form-group">
-                  <select name="uid" class="form-control" style="height: 25px;padding:0px;"> <option value="0">请选择..</option> </select>
-                 </div>
-                </div>
-                <div class="col-md-2" style="height: 31px;width: 13%;">
-                 <div class="form-group">
-                  <div class="input-icon right">
-                   <i class="fa fa-user" style="margin: 5px 2px 4px 10px;"></i>
-                   <input id="s" type="text" placeholder="关键字" class="form-control" style="height: 25px;" />
-                  </div>
-                 </div>
-                </div>
-                <div class="col-md-2" style="height: 31px;">
-                 <div class="form-group">
-                  <div class="input-group">
-                   <input type="text" name="" class="date_a form-control" placeholder="输入开始时间" style="height: 25px;" /><%--dateTo--%>
-                   <span class="input-group-addon" style="padding: 0px;"> <i class="fa fa-calendar"></i> </span>
-                  </div>
-                 </div>
-                </div>
-                <div class="col-md-2" style="height: 31px;">
-                 <div class="form-group">
-                  <div class="input-group">
-                   <input type="text" name="dateEnd" class="date_b form-control" placeholder="输入结束时间" style="height: 25px;" />
-                   <span class="input-group-addon" style="padding: 0px;"> <i class="fa fa-calendar"></i> </span>
-                  </div>
-                 </div>
-                </div>
-               </div>
-              </div>
-              <div class="demo-btn" style="position: relative;left:90%;top:-30px;width:10%;">
-               <button type="button" class="btn btn-danger btn-square selecpage" style="padding:2px 12px"><i class="glyphicon glyphicon-check "></i>查 询 </button>
-               <button type="button" class="btn btn-warning btn-square selecpage" style="padding:2px 12px"><i class="glyphicon glyphicon-check "></i>重 置 </button>
-              </div>
-             </form>
-          </div>
+           <form action="#" id="from1" style="height: 31px;"></form>
+        </div>
        </div>
       <%--TODO:列表--%>
        <div class="panel right_listpage" id="right_listpage" style=""><%--display: none--%>
@@ -314,31 +270,7 @@
                  </div>
               </div>
               </div>
-              <div class="row">
-                <div class="col-md-6" id="itemParamId" style="display: none;">
-                   <div class="form-group">
-                       <label for="#" class="control-label">itemParamId:</label>
-                       <input  type="text" name="itemCatId" placeholder="itemParamId"  class="form-control" style="position: relative;">
-                       <span class="help-block text-danger"style="display: none;">error</span>
-                   </div>
 
-               </div>
-                <div class="col-md-6" id="itemParamsCSS"  style="display: none;">
-                   <div class="form-group">
-                       <label for="#" class="control-label">商品规格模板:获取 tb_item_param 表中取</label>
-                       <input  type="text" name="junitemParams" placeholder="itemParams"  class="form-control" style="position: relative;">
-                       <span class="help-block text-danger"style="display: none;">error</span>
-                   </div>
-               </div>
-                <div class="col-md-6" id="itemParamsCSSnew"  style="display: none;">
-                   <div class="form-group">
-                       <label for="#" class="control-label">子分组项的值:存tb_item_param_item 表</label>
-                       <input  type="text" name="itemParams" placeholder="itemParams"  class="form-control" style="position: relative;">
-                       <span class="help-block text-danger"style="display: none;">error</span>
-                   </div>
-               </div>
-
-              </div>
               <%--TODO:促销--%>
               <div class="row">
                  <div class="col-md-6" style="margin-top: 25px;">
@@ -384,6 +316,31 @@
                    </div>
                 </div>
                </div>
+               <div class="row">
+                <div class="col-md-6" id="itemParamId" style="display: none;">
+                   <div class="form-group">
+                       <label for="#" class="control-label">itemParamId:</label>
+                       <input  type="text" name="itemCatId" placeholder="itemParamId"  class="form-control" style="position: relative;">
+                       <span class="help-block text-danger"style="display: none;">error</span>
+                   </div>
+
+               </div>
+                <div class="col-md-6" id="itemParamsCSS"  style="display: none;">
+                   <div class="form-group">
+                       <label for="#" class="control-label">商品规格模板:获取 tb_item_param 表中取</label>
+                       <input  type="text" name="junitemParams" placeholder="itemParams"  class="form-control" style="position: relative;">
+                       <span class="help-block text-danger"style="display: none;">error</span>
+                   </div>
+               </div>
+                <div class="col-md-6" id="itemParamsCSSnew"  style="display: none;">
+                   <div class="form-group">
+                       <label for="#" class="control-label">子分组项的值:存tb_item_param_item 表</label>
+                       <input  type="text" name="itemParams" placeholder="itemParams"  class="form-control" style="position: relative;">
+                       <span class="help-block text-danger"style="display: none;">error</span>
+                   </div>
+               </div>
+
+              </div>
             </div>
 
         </div>

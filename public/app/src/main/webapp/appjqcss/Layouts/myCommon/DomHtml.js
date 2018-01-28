@@ -229,6 +229,7 @@ var myapp = DomHtml = {
 
 
   },
+  //TODO:页码说明区
   PageInfoHtml:function (listdata)
   {
     var pageinfo = '';
@@ -247,6 +248,7 @@ var myapp = DomHtml = {
     pageinfo += '<label class="pages">合计：' + listdata['pages'] + ' 页&nbsp;&nbsp;</label>';
     return pageinfo;
   },
+  //TODO:页码区
   navigatepageNumsHtml:function (listdata)
   {
     var navpage = '';
@@ -284,14 +286,13 @@ var myapp = DomHtml = {
     });
     //console.log(mythis)
   },
-
+  //圖片上傳 默認無圖和有圖時追 加的 圖片節點
   ImgaesList:function (imgaesurl)
   {
-
     var imgaes = '';
     if(imgaesurl == "")
     {
-      //alert('dddd')
+      //alert('沒圖')
       imgaes += '<div class="col-sm-6 col-md-3 xc" style="width: 278px; height: 376px;margin: 0px;">';
       imgaes += '<div class="thumbnail">';
       imgaes += '<img data-src="" alt="hello" src="/images/xc.png" style="width: 228px; height: 200px;" />';
@@ -305,7 +306,7 @@ var myapp = DomHtml = {
     }
     else
     {
-      //alert(imgaesurl)
+      //alert('有圖')
       for(var i in imgaesurl)
       {
         imgaes += '<div class="col-sm-6 col-md-3" style="width: 278px; height: 376px;margin: 0px;" >';
@@ -320,8 +321,77 @@ var myapp = DomHtml = {
         imgaes += '</div>';
       }
     }
-
     return imgaes;
+  },
+  //TODO:Tree 節點
+  TreeDomHtml:function ()
+  {
+    var TreeDomHtml='<table class="table table-hover table-striped table-bordered table-advanced tablesorter"><thead class="TreeTitle"><tr></tr></thead><tbody class="TreeTable"></tbody></table>';
+    return TreeDomHtml
+  },
+  //TODO：每 個節點添加一個下一節點節 存放一級欄目行
+  newtable:function (tdlength)
+  {
+    var newtable = '<tr class="wrap"><td colspan="'+tdlength+'" style="padding: 0px;"><table class="table table-hover table-striped table-bordered table-advanced tablesorter" style="margin-bottom: 0px;"><tbody>';
+    newtable+= '</tbody></table></td></tr>';
+    return newtable;
+  },
+
+/*  treeeditbutton:function ()
+  {
+   var editbutton = '';
+    editbutton+= '<div class="">';
+    editbutton+= '<input  name="" type="text" value="" title=""  class="form-control" style="margin-bottom:0px;height: 25px;" />';
+    editbutton+= '</div>';
+    return editbutton;
+  },*/
+  //TODO: 列表模板区2-按钮区
+  reghtaddeditbutton:function ()
+  {
+    var button = '';
+    button += '<button type="button" typename="add" class="btn btn-red btn-square" style="padding:2px 12px;"><i class="glyphicon glyphicon-plus"></i>新 增 </button>';
+    button += '<button type="button" typename="edit"  class="btn btn-primary btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-pencil"></i>修 改 </button>';
+    button += '<button type="button" typename="del"  class="btn btn-success btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-remove"></i>删 除 </button>';
+    button += '<button type="button" typename="xuan"  class="btn btn-orange btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-random"></i>返 选 </button>';
+    button += '<button type="button" typename="retu"  class="btn btn-violet btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-list-alt"></i>返回列表 </button>';
+    button += '<button type="button" typename="refresh"  class="btn btn-info btn-square" style="padding:2px 12px"><i class="glyphicon glyphicon-refresh"></i>刷新 </button>';
+    return button;
+  },
+  //TODO:列表模板区2-查询表单区
+  SelectForm:function ()
+  {
+    var SelectForm = '';
+    SelectForm += '<div class="row"><div class="col-md-2" style="height: 31px;width: 13%;"><div class="form-group">';
+    SelectForm += '<select name="uid" class="form-control" style="height: 25px;padding:0px;"> <option value="0">请选择..</option> </select>';
+    SelectForm += '</div></div>';
+    SelectForm += '<div class="col-md-2" style="height: 31px;width: 13%;"><div class="form-group"><div class="input-icon right"><i class="fa fa-user" style="margin: 5px 2px 4px 10px;"></i>';
+    SelectForm += '<input id="s" type="text" placeholder="关键字" class="form-control" style="height: 25px;" /></div> </div></div>';
+    SelectForm += '<div class="col-md-2" style="height: 31px;width:14.5%;"><div class="form-group"><div class="input-group">';
+    SelectForm += '<input type="text" name="" class="date_a form-control" placeholder="输入开始时间" style="height: 25px;" /><span class="input-group-addon" style="padding: 0px;"> <i class="fa fa-calendar"></i> </span>';
+    SelectForm += '</div></div></div>';
+    SelectForm += '<div class="col-md-2" style="height: 31px;width:14.5%;"><div class="form-group"><div class="input-group">';
+    SelectForm += '<input type="text" name="dateEnd" class="date_b form-control" placeholder="输入结束时间" style="height: 25px;" />';
+    SelectForm += '<span class="input-group-addon" style="padding: 0px;"> <i class="fa fa-calendar"></i> </span>';
+    SelectForm += '</div></div></div></div>';
+    SelectForm += '<div class="demo-btn" style="position: relative;left:90%;top:-30px;width:10%;">';
+    SelectForm += '<button type="button" class="btn btn-danger btn-square selecpage" style="padding:2px 12px"><i class="glyphicon glyphicon-check "></i>查 询 </button>';
+    SelectForm += '<button type="button" class="btn btn-warning btn-square selecpage" style="padding:2px 12px"><i class="glyphicon glyphicon-check "></i>重 置 </button>';
+    SelectForm += '</div>';
+
+
+    return SelectForm;
+
+  },
+  //TODO: 列表行-按钮区
+  LineButton:function ()
+  {
+    var LineButton = '';
+        LineButton += '<button type="button" typename="edit" data-toggle="tooltip" data-original-title="修改当前行"  class="btn btn-info btn-square btn-xs "><i class="glyphicon glyphicon-pencil"></i>&nbsp;</button>&nbsp;';
+        LineButton += '<button type="button" typename="cancel" data-toggle="tooltip" data-original-title="取消修改" class="btn btn-danger btn-xs "><i class="glyphicon glyphicon-share"></i></button>&nbsp;';
+        LineButton += '<button type="button" typename="del" data-toggle="tooltip" data-original-title="删除当前行" class="btn btn-danger btn-xs "><i class="glyphicon glyphicon-minus"></i></button>&nbsp;';
+        LineButton += '<button type="button" typename="save" data-toggle="tooltip" data-original-title="保存當前行" class="btn btn-danger btn-xs "><i class="fa fa-floppy-o"></i></button>&nbsp;';
+        return LineButton;
+
   },
 
 };

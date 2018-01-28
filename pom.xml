@@ -10,6 +10,7 @@
     <modules>
         <module>common</module>
         <module>public</module>
+        <module>rest</module>
     </modules>
     <packaging>pom</packaging>
 

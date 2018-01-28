@@ -84,15 +84,7 @@ $.fn.extend({
         {
           //alert('1')
           MySubmit.SubmitOK();//TODO:添加与修改成功返回 处理DOM
-          /*mythis['right_listpage'].show();//TODO:列表
-          mythis['addEdit'].hide();//TODO:添加表单
-          mythis['from2'].attr('formtype','add');//TODO:表单类型
-          mythis['addeditsubmit'].find('button:eq(0)').attr('formtype','add')
-          mythis['from2'].resetForm();//TODO:把前面验证的 FORM 恢复到验证前原来的状态。
-          jQuery("[id='" + mythis.appright_Id + "']").find('tbody.tablelist>tr').find('input').attr('checked',false);
-          jQuery("[id='" + mythis.appright_Id + "']").find('tbody.tablelist>tr').find('input').parent('div').removeClass('checked');
-         // if(mythis.frommodel == 'item')*/
-           // mythis['itemAddEditor'].html('');
+
           $.scojs_message('注意： 请选择一条待修改的记录...！', $.scojs_message.TYPE_ERROR);
         }
 
@@ -195,8 +187,9 @@ $.fn.extend({
     myKindEditorPlugin.initPicUpload();
 
   },
-  paramFromcommon:function(mythis)
+  paramFromcommon:function()
   {
+    DomHtml.itemformName(mythis['from2'],mythis.frommodel)                           //TODO：设置表单的样式和 名称
     MyjQeryValidatePlugin.myParamFromValidate(mythis['from2'],mythis.frommodel);                 //TODO:表单验证 validate
     if(mythis['from2'].find('div.cloneDomHtml').length == 0)
     {
@@ -212,6 +205,7 @@ $.fn.extend({
     TreeParamPlugin.CatlistElement();//TODO:初始化元素
     TreeParamPlugin.CatlisTableHead();//TODO:初始化表头
     TreeParamPlugin.CatlisTableBody();//TODO:初始化动态行
+
     TreeParamPlugin.eachTreeTitle(mythis,mythis['level1']);//TODO:选择栏目 click 带栏目的ID 并查出 当前商品所属栏目是否有规格参数模板
     //TODO:栏目 列表 可选 ===============================END
     //TODO: 规格参数 模块 param

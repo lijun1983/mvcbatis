@@ -46,20 +46,41 @@ $(function () {
       //console.log(mythis.settings.catdata);
       //TODO:公用 列表区===============================
       mythis['reghtaddeditbutton'] = jQuery("[id='" + mythis.appright_Id + "']").find('.reghtaddeditbutton');//TODO：按钮组 add  edit  del xuan
+      mythis['from1'] = jQuery("[id='" + mythis.appright_Id + "']").find('#from1');//TODO:列表模板区2-查询表单区
+
       mythis['right_listpage'] = jQuery("[id='" + mythis.appright_Id + "']").find('.right_listpage');       //TODO：列表节点
       mythis['addEdit'] = jQuery("[id='" + mythis.appright_Id + "']").find('.addEdit');                     //TODO：表单 节点
-      //TODO:初始化 公用 的列表  =======================
-      this.myCommonList();                                                                                  //TODO:初始化公用的列表
-      this.bindEvent();
-      mythis['from2'] = jQuery("[id='" + mythis.appright_Id + "']").find('#from2');                         //TODO：表单from
-      mythis['addeditsubmit'] = jQuery("[id='" + mythis.appright_Id + "']").find('.addeditsubmit');         //TODO：表单的提交
-      //TODO:公用 表单  ===============================
-      this.FromCommonEvent();
+      mythis['from2'] = jQuery("[id='" + mythis.appright_Id + "']").find('#form2');
+     if(mythis.frommodel == 'tree')
+     {
+       mythis['from3'] = jQuery("[id='" + mythis.appright_Id + "']").find('#form3');
+       if(mythis.settings.catdata == true)
+       {
+         TreeParamPlugin.getCatlistAjaxData(mythis.settings.catlisturl);                    //TODO：初始返回列表数据AJAX 是否返回栏目的一级 pid = 0 数据 默认不返回
+       }
+       //TODO:栏目 列表 可选 ===============================
+       TreeParamPlugin.CatlistElement();//TODO:初始化元素
+       TreeParamPlugin.CatlisTableHead();//TODO:初始化表頭遍歷
+       TreeParamPlugin.CatlisTableBody();//TODO:初始化动态行
+       TreeParamPlugin.eachTreeTitle(mythis,mythis['level1']);//TODO:选择栏目 click 带栏目的ID 并查出 当前商品所属栏目是否有规格参数模板
+     }
+     else
+     {
+       //TODO:初始化 公用 的列表  =======================
+       this.myCommonList();                                                                                  //TODO:初始化公用的列表
+       this.bindEvent();
+       mythis['from2'] = jQuery("[id='" + mythis.appright_Id + "']").find('#from2');                         //TODO：表单from
+       mythis['addeditsubmit'] = jQuery("[id='" + mythis.appright_Id + "']").find('.addeditsubmit');         //TODO：表单的提交
+       //TODO:公用 表单  ===============================
+       this.FromCommonEvent();
+     }
+
     },
       //TODO:公用的列表
     myCommonList: function (parms) {
    // alert("3")
-    //console.log(parms)
+      mythis['reghtaddeditbutton'].empty().append(DomHtml.reghtaddeditbutton());//TODO: 列表模板区2-按钮区
+      mythis['from1'].empty().append(DomHtml.SelectForm());//TODO:列表模板区2-查询表单区
       CommonTableList.getAjaxDate(mythis.settings.url, parms);//TODO：初始返回列表数据AJAX
       CommonTableList.InitializeElement(mythis['listdata']);//TODO：分页列表说明
       CommonTableList.createTableHead();//TODO:初始化表头

@@ -14,7 +14,7 @@ jQuery(function () {
       { field: 'paramData', title: 'paramData',},
       { field: 'created', title: 'created',},
       { field: 'updated', title: 'updated',},
-      { field: 'Plugin',title: '操作',},
+      { field: 'Plugin',title: '操作',style:'width:10%'},
     ],
    // UnixToDate("yyyy-MM-dd hh:mm:ss",new Date(obj["created"]))
     RightListDom:true,              //TODO:是否显示列表
@@ -40,7 +40,7 @@ jQuery(function () {
       { field: 'created', title: 'created',},//formatter: myPlugin.UnixToDate("yyyy-MM-dd hh:mm:ss")
       { field: 'updated', title: 'updated',},
       //{ field: 'paramData',title: '商品规格参数模板字段', width: 'auto', align: 'center' },
-      { field: 'Plugin',title: '操作',},
+      { field: 'Plugin',title: '操作',style:'width:10%'},
     ],
   });
 });

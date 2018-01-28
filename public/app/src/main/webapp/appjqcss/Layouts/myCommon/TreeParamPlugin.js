@@ -21,11 +21,7 @@ var myapp = TreeParamPlugin = {
           mythis['from2'].find('div.cloneDomHtml').empty();
           mythis['from2'].find('.ShowGroupParam').empty();
         }
-        /*else
-        {
-          mythis['from2'].find('div.cloneDomHtml').empty();
-          mythis['from2'].find('.ShowGroupParam').empty();
-        }*/
+
       };
 
       $.ajax(mythis['CatParamAjax']);
@@ -80,20 +76,24 @@ var myapp = TreeParamPlugin = {
       //TODO:格式化是日期时间 价格 将数值四舍五入(保留2位小数)后格式化成金额形式
       data[i]['created'] = myDatePlugin.UnixToDate("yyyy-MM-dd hh:mm:ss",new Date(data[i]['created']));
       data[i]['updated'] = myDatePlugin.UnixToDate("yyyy-MM-dd hh:mm:ss",new Date(data[i]['updated']));
-      data[i]['Plugin']   = '<button type="button" class="btn btn-default btn-xs"><i class="fa fa-edit"></i>&nbsp; Edit </button>&nbsp; <button type="button" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i>&nbsp; Delete </button>'
+      console.log(data[i]['state'])
       if(data[i]['state'] == 'closed')
       {
-        data[i]['children']='';
+        //data[i]['Plugin'] = '<button type="button" data-toggle="tooltip" data-original-title=";state=closed 不可以操作" class="btn btn-danger btn-xs "><i class="glyphicon glyphicon-minus"></i></button>&nbsp;'
+        data[i]['Plugin'] = '<span   data-toggle="tooltip" data-original-title="state=closed 不可以操作" class="tipso_style tip2">說明</span>'
       }
-
+      else {
+        data[i]['Plugin']   =  DomHtml.LineButton();
+      }
     }
+
     return data;
   },
   //初始化元素
   CatlistElement: function () {
     //TODO：分页列表说明
-    //console.log($("#"+mythis.appright_Id).find("#form3"))
-    $("#"+mythis.appright_Id).find("#form3").empty().append('<table class="table table-hover table-striped table-bordered table-advanced tablesorter"><thead class="TreeTitle"><tr></tr></thead><tbody class="TreeTable"></tbody></table>');
+    //$("#"+mythis.appright_Id).find("#form3").empty().append('<table class="table table-hover table-striped table-bordered table-advanced tablesorter"><thead class="TreeTitle"><tr></tr></thead><tbody class="TreeTable"></tbody></table>');
+    $("#"+mythis.appright_Id).find("#form3").empty().append(DomHtml.TreeDomHtml());
   },
   //循环添加表头
   CatlisTableHead: function () {
@@ -104,7 +104,7 @@ var myapp = TreeParamPlugin = {
       if (headcols[i].field == 'ck')
         $("[id='" + mythis.appright_Id + "']").find('thead.TreeTitle>tr').append("<th width='50px'><input type='checkbox'></th>");
       else
-        $("[id='" + mythis.appright_Id + "']").find('thead.TreeTitle>tr').append("<th width=" + headcols[i].width + " align=" + headcols[i].align + ">" + headcols[i].title + "</th>");
+        $("[id='" + mythis.appright_Id + "']").find('thead.TreeTitle>tr').append("<th style='"+headcols[i].style+"'>" + headcols[i].title + "</th>");
     }
     //TODO:添加 iCheck样式
     jQuery("[id='" + mythis.appright_Id + "']").find('thead.TreeTitle>tr input[type=checkbox]').iCheck({checkboxClass: 'icheckbox_square-blue',increaseArea: '20%'});
@@ -115,13 +115,6 @@ var myapp = TreeParamPlugin = {
   {
     // alert("走这")
     mythis['cid'] = jQuery("[id='" + mythis.appright_Id + "']").find('input[name=cid]');
-    /*if(mythis['ItemparamData']['itemCatId']!= '')
-    {
-      console.log('有值')
-    }
-    else
-      console.log('cat没有数据都走这')*/
-
     var cat =  mythis.settings.cat;//返回所有数据对象
     mythis['tdlength'] = cat.length;
     var Catlistdata = mythis['childlist']
@@ -135,17 +128,17 @@ var myapp = TreeParamPlugin = {
 
         if (cat[colindex].field == 'ck')
         {
-          rowsdata += '<td align="center"><input  type="checkbox" value="' + Catlistdata[i][cat[colindex].field] + '"><span></span><span></span><span></span></td>'
+          rowsdata += '<td align="center"><input  type="checkbox" name="editId" value="' + Catlistdata[i][cat[colindex].field] + '"><span></span><span></span><span></span></td>'
         }
         else if(cat[colindex].field == 'Plugin')
         {
           rowsdata += '<td class="buttonClick" key="' + cat[colindex].title + '">' + Catlistdata[i][cat[colindex].field] + '</td>';
         }
         else
-          rowsdata += '<td  key="' + cat[colindex].title + '"><span>' + Catlistdata[i][cat[colindex].field] + '</span><span></span><span></span></td>';
+          rowsdata += '<td class="edit" key="' + cat[colindex].title + '"><span>' + Catlistdata[i][cat[colindex].field] + '</span><span></span><span></span></td>';
       }
       rowsdata += "</tr>";
-      var newtable = TreeParamPlugin.newtable(mythis['tdlength']);
+      var newtable = DomHtml.newtable(mythis['tdlength']);
       rowsdata += newtable;
     }
     jQuery("[id='" + mythis.appright_Id + "']").find('.TreeTable').empty().append(rowsdata);
@@ -164,6 +157,7 @@ var myapp = TreeParamPlugin = {
     //TODO:去除 小于2 td 的边框
     jQuery("[id='" + mythis.appright_Id + "']").find('.TreeTable>tr').find('td:lt(2)').css({"border-style":"none"});
     mythis['level1'] = jQuery("[id='" + mythis.appright_Id + "']").find('.TreeTable>tr.inittr').find('td:eq(1)')
+    myPlugin.tooltip();//行操作 提示
 
     //TreeParamPlugin.eachTreeTitle(mythis,mythis['level1']);//TODO:选择栏目 click 带栏目的ID 并查出 当前商品所属栏目是否有规格参数模板
   },
@@ -182,29 +176,25 @@ var myapp = TreeParamPlugin = {
         {
           if (cat[colindex].field == 'ck')
           {
-            rowsdata += '<td  class="" align="center" ><input  type="checkbox" value="' + Catlistnextdata[i][cat[colindex].field] + '"></td>'
+            rowsdata += '<td  class="" align="center" ><input  type="checkbox" name="editId" value="' + Catlistnextdata[i][cat[colindex].field] + '"></td>'
           }
           else if(cat[colindex].field == 'Plugin')
           {
             rowsdata += '<td class="buttonClick" key="' + cat[colindex].title + '">' + Catlistnextdata[i][cat[colindex].field] + '</td>';
           }
           else
-            rowsdata += '<td  key="' + cat[colindex].title + '"><span>' + Catlistnextdata[i][cat[colindex].field] + '</span><span></span><span></span></td>';
+            rowsdata += '<td class="edit" key="' + cat[colindex].title + '"><span>' + Catlistnextdata[i][cat[colindex].field] + '</span><span></span><span></span></td>';
         }
         rowsdata += "</tr>";
-        var newtable = TreeParamPlugin.newtable(mythis['tdlength']);
+        var newtable = DomHtml.newtable(mythis['tdlength']);
         rowsdata += newtable;
       }
+
       //console.log(rowsdata)
       return rowsdata;
     }
   },
-  newtable:function (tdlength)
-  {
-    var newtable = '<tr class="wrap"><td colspan="'+tdlength+'" style="padding: 0px;"><table class="table table-hover table-striped table-bordered table-advanced tablesorter" style="margin-bottom: 0px;"><tbody>';
-    newtable+= '</tbody></table></td></tr>';
-    return newtable;
-  },
+
   /**
    *
    * @param mythis 全局对象
@@ -221,6 +211,21 @@ var myapp = TreeParamPlugin = {
         return false;
       });
     });
+  },
+  //TODO：栏目的修改与册除按钮
+  editbutton:function (mythis,obj)
+  {
+    obj.find('td:last').children('button').each(function (index,element)
+    {
+      //console.log(index)
+      //console.log(element)
+      jQuery(element).unbind("click").click(function(){
+        switch(index){
+          case index:	jQuery(this).clickeditbutton(mythis,jQuery(this));break;
+        }
+        return false;
+      });
+    })
   },
 //TODO:表单处理
   FromRCcheckbox:function ()
@@ -295,29 +300,57 @@ var myapp = TreeParamPlugin = {
       });
     });
   },
-  /**
-   * @param select 表示那个DOM元素
-   * @returns {select}
-   * 初始调用这个方法
-   */
- /* createEditor : function(select)
-  {
-    //alert('createEditor')
-    return KindEditor.create(select,myapp.kingEditorParams)/!*,Common.kingEditorParams*!/
-  },*/
-
-  /**
-   * 编辑器参数
-   * filePostName :TODO:指定上传文件参数名称
-   * uploadJson :TODO:指定上传文件请求的url。
-   * dir : 上传类型，TODO:分别为image、flash、media、file
-   */
- // kingEditorParams : {filePostName  : "uploadFile",uploadJson : "/pic/upload",dir : "image"},// TODO-编辑器参数;所有上传图的地址
-
 
 };
 $.fn.extend({
+  //TODO:欄目列表行操作 按鈕 修改 取消 刪除 保存 處理  服務端未做
+  clickeditbutton:function (mythis,obj)
+  {
+    if(obj.attr('typename') == 'edit')
+    {
+      console.log(obj.closest('tr').attr('id'))
+      obj.closest('tr').find('td.edit:lt(4)').find('span:eq(0)').each(function (i,v)
+      {
+        //TODO:jQuery(this).wrap('<input  name="edit['+i+']" type="text" value="'+jQuery(this).text()+'"  class="form-control" style="margin-bottom:0px;height: 25px;" />')
+        jQuery(this).wrap('<input  name="edit'+i+'" type="text" value="'+jQuery(this).text()+'"  class="form-control" style="margin-bottom:0px;height: 25px;" />')
+      })
+      obj.closest('tbody').find('tr>td>div').removeClass('checked').find('input[type=checkbox]').attr('checked',false); //先移除所有
+      obj.closest('tr').find('td:eq(0)').find('div').addClass('checked').find('input[type=checkbox]').attr('checked',true)//再添加当前
+    }
+    else if(obj.attr('typename') =='cancel')
+    {
+      obj.closest('tr').find('td.edit:lt(4)').find('input').each(function (i,v)
+      {
+        jQuery(this).before('<span>'+jQuery(this).attr('value')+'</span>')
+        jQuery(this).fadeOut('slow',function(){jQuery(this).remove();});
+      })
+      obj.closest('tbody').find('tr>td>div').removeClass('checked').find('input[type=checkbox]').attr('checked',false);; //先移除所有
+    }
+    else if(obj.attr('typename') =='del')
+    {
+      obj.closest('tr').fadeOut('slow',function(){obj.closest('tr').remove();});
+    }
+    else if(obj.attr('typename')== 'save')
+    {
 
+      //console.log(obj.closest('tr').find('td:lt(5)').find("input[name^='edit']").serialize())
+      mythis['LineButtonEdit'] = {type:'POST',url  :'假URL LineButtonEdit',dataType:'json',data:obj.closest('tr').find('td:lt(5)').find("input[name^='edit']").serialize(),
+        success: function(json)
+        {
+          //console.log(json.status)
+          if(json.status == 200)
+          {
+            console.log(json);
+            MySubmit.SubmitOK();//TODO:添加与修改成功返回 处理DOM
+            $.scojs_message('add添加成功...！', $.scojs_message.TYPE_OK);
+          }
+
+        },
+      }
+      //console.log(mythis['submit'])
+      jQuery.ajax(mythis['LineButtonEdit']);//返回
+    }
+  },
   /**
    * @param mythis  全局对象
    * @param obj 当前 click 的对象
@@ -341,6 +374,7 @@ $.fn.extend({
       if(mythis.settings.itemparam == true)
       {
         mythis['cid'] = obj.closest('tr').find('td:eq(0)').find('input[type=checkbox]').attr('value');
+
         TreeParamPlugin.getItemCatParamAjaxData(mythis,mythis.settings.CatParamUrl,mythis['cid']);       //TODO:关键 是否返回商品规格参模板 默认不返回
         //TreeParamPlugin.groupParam(mythis);//显示商品的规格与参数模板
       }
@@ -355,6 +389,7 @@ $.fn.extend({
       var afterData = TreeParamPlugin.CatlisTableBodyNext(mythis['Catlistnextdata'])              //TODO:所有下一级 数据 DATA
       //jQuery(this).closest('tr').after(afterData);.siblings('tr')
       obj.closest('tr').next('tr.wrap').find('td>table>tbody').empty().append(afterData);//TODO:所有下一级 数据 DATA 存放的节点  DOM
+      myPlugin.tooltip();//行操作 提示
       obj.PublicNextDomDataCss(jQuery(this));                                            //TODO：设置所有下级的 样式 tr td 缩进 和 判断是否有子节点；有就禁用
       //TODO：click 点击当前节点显示与隐藏节点
       obj.closest('tr.inittr').siblings('tr.inittr').show();                             //TODO:所有一级节点 tr.inittr show
@@ -363,10 +398,18 @@ $.fn.extend({
 
       obj.closest('tr').fadeIn(1000);                                                    //TODO: 当前节点 fadeIn show
       obj.closest('tr').next('tr.wrap').fadeIn(1000);                                    //TODO:当前节点 fadeIn show
-
+//console.log(obj.closest('tr').next('tr.wrap').find('td>table>tbody>tr').find("td:eq(1)"))
       obj.closest('tr').next('tr.wrap').find('td>table>tbody>tr').find("td:eq(1)").each(function(index, element){
-        TreeParamPlugin.eachTreeTitle(mythis,jQuery(this));                                   //TODO:绑定这个函数（注册）eachTreeTitle 所有下级公用函数
+        TreeParamPlugin.eachTreeTitle(mythis,jQuery(this));                               //TODO:绑定这个函数（注册）eachTreeTitle 所有下级公用函数
       });
+      //TODO:修改行 不等於 closed
+      if(mythis.frommodel == 'tree')
+      {
+        obj.closest('tr').next('tr.wrap').find('td>table>tbody>tr').each(function(index, element){
+          TreeParamPlugin.editbutton(mythis,jQuery(this));                               //TODO:绑定这个函数（注册）eachTreeTitle 所有下级公用函数
+        });
+      }
+
       return ;
     }
 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--TODO:srping MVC-->
+    <!--TODO:与后台不一样的配置处 com.rest.service -->
+    <context:component-scan base-package="com.rest.controller"/>
+    <mvc:annotation-driven/>
+    <!--G:\Maven\Repository\org\springframework\spring-webmvc\4.1.3.RELEASE\spring-webmvc-4.1.3.RELEASE-sources.jar!\org\springframework\web\servlet\view\InternalResourceViewResolver.java-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/myjsp/"/><!--配置访问的目录-->
+        <property name="suffix" value=".jsp"/><!--配置访问目录下文件的后缀名称 例 ： index.jsp -->
+    </bean>
+    <!--  因:web.xml-><url-pattern>/</url-pattern> 拦截所有请求 ;所以需要在springmvc.xml添加静态资源映射-->
+    <mvc:resources location="/vendors/" mapping="/vendors/**"/>
+    <mvc:resources location="/jscss/" mapping="/jscss/**"/>
+    <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/images/" mapping="/images/**"/>
+    <mvc:resources location="/appjqcss/" mapping="/appjqcss/**"/><!--本案自己写提jquery css-->
+
+    <!-- 定义文件上传解析器 -->
+    <!-- 设定默认编码 -->
+    <!-- 设定文件上传的最大值5MB，5*1024*1024 -->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="maxUploadSize" value="5242880"></property>
+    </bean>-->
+</beans>
